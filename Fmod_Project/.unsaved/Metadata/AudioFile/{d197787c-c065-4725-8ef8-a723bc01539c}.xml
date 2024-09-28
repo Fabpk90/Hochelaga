@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{d197787c-c065-4725-8ef8-a723bc01539c}">
-		<property name="assetPath">
-			<value>01 test.wav</value>
-		</property>
+		<property name="assetPath" />
 		<property name="isStreaming">
 			<value>true</value>
 		</property>

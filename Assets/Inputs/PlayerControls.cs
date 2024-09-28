@@ -127,6 +127,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Close"",
+                    ""type"": ""Button"",
+                    ""id"": ""97d8fe2b-8c95-4368-a00e-616e5583bfd3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -138,6 +147,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d97c2896-501d-46f3-97f5-c7d590a2c574"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Close"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -170,6 +190,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // Interact
         m_Interact = asset.FindActionMap("Interact", throwIfNotFound: true);
         m_Interact_Interact = m_Interact.FindAction("Interact", throwIfNotFound: true);
+        m_Interact_Close = m_Interact.FindAction("Close", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -292,11 +313,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Interact;
     private List<IInteractActions> m_InteractActionsCallbackInterfaces = new List<IInteractActions>();
     private readonly InputAction m_Interact_Interact;
+    private readonly InputAction m_Interact_Close;
     public struct InteractActions
     {
         private @PlayerControls m_Wrapper;
         public InteractActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Interact => m_Wrapper.m_Interact_Interact;
+        public InputAction @Close => m_Wrapper.m_Interact_Close;
         public InputActionMap Get() { return m_Wrapper.m_Interact; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -309,6 +332,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Close.started += instance.OnClose;
+            @Close.performed += instance.OnClose;
+            @Close.canceled += instance.OnClose;
         }
 
         private void UnregisterCallbacks(IInteractActions instance)
@@ -316,6 +342,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Close.started -= instance.OnClose;
+            @Close.performed -= instance.OnClose;
+            @Close.canceled -= instance.OnClose;
         }
 
         public void RemoveCallbacks(IInteractActions instance)
@@ -350,5 +379,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public interface IInteractActions
     {
         void OnInteract(InputAction.CallbackContext context);
+        void OnClose(InputAction.CallbackContext context);
     }
 }

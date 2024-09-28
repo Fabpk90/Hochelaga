@@ -12,6 +12,12 @@ public class TempleInteractable : Interactables
         
         _player.controls.Interact.Enable();
         _player.controls.Interact.Interact.performed += InteractOnperformed;
+        _player.controls.Interact.Close.performed += CloseOnperformed;
+    }
+
+    private void CloseOnperformed(InputAction.CallbackContext obj)
+    {
+        UIInventory.Instance.OpenStele(false);
     }
 
     private void InteractOnperformed(InputAction.CallbackContext obj)

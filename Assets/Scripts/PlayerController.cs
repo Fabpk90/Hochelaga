@@ -7,8 +7,6 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    public PlayerController instance;
-    
     public float movementSpeed = 10;
     
     private PlayerControls controls;
@@ -17,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     public bool dindonPickedUp = false;
     public EventHandler OnDindonPickedUp;
+
+    public GameObject objectInteractingWith;
     
     void Start()
     {
@@ -28,8 +28,6 @@ public class PlayerController : MonoBehaviour
         
         controls.Move.MoveYAxis.performed += MoveYAxisOnperformed;
         controls.Move.MoveYAxis.canceled += MoveYAxisOncanceled;
-
-        instance = this;
     }
 
     public void PickupDindon()

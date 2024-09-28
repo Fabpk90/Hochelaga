@@ -32,7 +32,7 @@ public class Interactables : MonoBehaviour
         }
     }
 
-    private void PlayerUnCollisioned(PlayerController player)
+    public virtual void PlayerUnCollisioned(PlayerController player)
     {
         player.objectInteractingWith = null;
     }

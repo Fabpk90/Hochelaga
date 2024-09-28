@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
     public float movementSpeed = 10;
     
     [HideInInspector]
@@ -29,6 +30,8 @@ public class PlayerController : MonoBehaviour
         
         controls.Move.MoveYAxis.performed += MoveYAxisOnperformed;
         controls.Move.MoveYAxis.canceled += MoveYAxisOncanceled;
+
+        instance = this;
     }
 
     public void PickupDindon()

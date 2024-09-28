@@ -40,6 +40,7 @@ public class UIInventory : MonoBehaviour
 	private void Start()
 	{
 		TextManager.LoadCSV();
+		OpenStele(false);
 	}
 
 	private void Update()
@@ -67,6 +68,11 @@ public class UIInventory : MonoBehaviour
 				break;
 			}
 		}
+	}
+
+	public void OpenStele(bool open=true)
+	{
+		steleMaker.style.display = open ? DisplayStyle.Flex : DisplayStyle.None;
 	}
 
 	private WaitUntil waitForButtonUp = new WaitUntil(()=>Input.GetMouseButtonUp(0));

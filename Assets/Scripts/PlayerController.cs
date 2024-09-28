@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,9 @@ public class PlayerController : MonoBehaviour
     private PlayerControls controls;
 
     private Vector3 movementDirection;
+
+    public bool dindonPickedUp = false;
+    public EventHandler OnDindonPickedUp;
     
     void Start()
     {
@@ -23,6 +27,12 @@ public class PlayerController : MonoBehaviour
         
         controls.Move.MoveYAxis.performed += MoveYAxisOnperformed;
         controls.Move.MoveYAxis.canceled += MoveYAxisOncanceled;
+    }
+
+    public void PickupDindon()
+    {
+        OnDindonPickedUp?.Invoke(this, null);
+        dindonPickedUp = true;
     }
 
     private void MoveYAxisOncanceled(InputAction.CallbackContext obj)

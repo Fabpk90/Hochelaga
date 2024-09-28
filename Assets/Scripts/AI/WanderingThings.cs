@@ -23,7 +23,7 @@ public class WanderingThings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(stop)return;
+        if(stop || waypoints.Count == 0)return;
         
         Transform tr = waypoints[waypointIndex];
 

@@ -7,15 +7,18 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Pickable : MonoBehaviour
 {
-    public EventReference sfx;
+	[SerializeField] private Item item;
+
+	public EventReference sfx;
     public virtual void PickedUp(PlayerController _player)
     {
         if (!sfx.IsNull)
         {
-            FMODUnity.RuntimeManager.PlayOneShot(sfx);    
-        }
-        
-    }
+            FMODUnity.RuntimeManager.PlayOneShot(sfx);
+		}
+		UIInventory.Instance.AddDraggableElement(item);
+
+	}
     private void OnTriggerEnter2D(Collider2D other)
     {
         var player = other.gameObject.GetComponent<PlayerController>();

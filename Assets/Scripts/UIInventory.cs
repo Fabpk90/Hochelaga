@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 
 public class UIInventory : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class UIInventory : MonoBehaviour
 	[SerializeField] private Item exemple;
 
 	private VisualElement steleMaker;
+	private Button submitButton, closeButton;
 	private List<VisualElement> slots = new();
 	private List<VisualElement> dropAreas = new();
 	private List<(Label, Label)> textsAreas = new();
@@ -29,6 +32,8 @@ public class UIInventory : MonoBehaviour
 
 		VisualElement bar = uiMainDocument.rootVisualElement.Q<VisualElement>("InventoryBar");
 		steleMaker = uiMainDocument.rootVisualElement.Q<VisualElement>("SteleMaker");
+		submitButton = uiMainDocument.rootVisualElement.Q<Button>("SubmitButton");
+		closeButton = uiMainDocument.rootVisualElement.Q<Button>("CloseStele");
 		slots = bar.Query("BigSlot").ToList();
 		dropAreas.Add(steleMaker.Q("DropArea1"));
 		dropAreas.Add(steleMaker.Q("DropArea2"));
@@ -40,13 +45,16 @@ public class UIInventory : MonoBehaviour
 	private void Start()
 	{
 		TextManager.LoadCSV();
+		submitButton.clicked += Victory.Instance.Verify;
+		closeButton.clicked += ()=>OpenStele(false);
 		OpenStele(false);
+		UnlockSubmitVerify();
 	}
 
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.E)){
-			AddDraggableElement(exemple);
+			OpenStele(true);
 		}
 	}
 
@@ -70,9 +78,14 @@ public class UIInventory : MonoBehaviour
 		}
 	}
 
-	public void OpenStele(bool open=true)
+	public void OpenStele(bool open = true)
 	{
 		steleMaker.style.display = open ? DisplayStyle.Flex : DisplayStyle.None;
+		foreach (var slot in dropAreas)
+		{
+			if(itemContainsBy.ContainsValue(slot))
+				itemContainsBy.FirstOrDefault(x => x.Value == slot).Key.style.display = open ? DisplayStyle.Flex : DisplayStyle.None;
+		}
 	}
 
 	private WaitUntil waitForButtonUp = new WaitUntil(()=>Input.GetMouseButtonUp(0));
@@ -98,6 +111,7 @@ public class UIInventory : MonoBehaviour
 			//draggableElement.style.top = currentDropArea.style.top;
 			itemContainsBy[draggableElement] = currentDropArea;
 			FillDescr(items[draggableElement], currentDropArea);
+			UnlockSubmitVerify();
 		}
 		else
 		{
@@ -143,6 +157,29 @@ public class UIInventory : MonoBehaviour
 		string descr = item == null ? "" : TextManager.GetTextByID(item.idDescr);
 		textsAreas[dropAreas.IndexOf(itemContainsBy[draggableElement])].Item1.text = title;
 		textsAreas[dropAreas.IndexOf(itemContainsBy[draggableElement])].Item2.text = descr;
+	}
 
+	private void UnlockSubmitVerify()
+	{
+		bool unlock = true;
+		foreach (var dropArea in dropAreas)
+		{
+			if (!itemContainsBy.ContainsValue(dropArea))
+			{
+				unlock = false;
+				break;
+			}
+		}
+		submitButton.SetEnabled(unlock);
+	}
+
+	public (Item, Item, Item) GetOrder()
+	{
+		return new()
+		{
+			Item1 = this.items[itemContainsBy.FirstOrDefault(x => x.Value == dropAreas[0]).Key],
+			Item2 = this.items[itemContainsBy.FirstOrDefault(x => x.Value == dropAreas[1]).Key],
+			Item3 = this.items[itemContainsBy.FirstOrDefault(x => x.Value == dropAreas[2]).Key]
+		};
 	}
 }

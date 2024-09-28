@@ -1,0 +1,46 @@
+.slot-big-inventory {
+    width: 140px;
+    height: 140px;
+    background-color: rgb(161, 161, 161);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-left-color: rgba(0, 0, 0, 0.44);
+    border-right-color: rgba(0, 0, 0, 0.44);
+    border-top-color: rgba(0, 0, 0, 0.44);
+    border-bottom-color: rgba(0, 0, 0, 0.44);
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.slot-big-inventory #Item {
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    width: 140px;
+    height: 140px;
+}
+
+.drop-area {
+    border-left-color: rgb(255, 252, 0);
+    border-right-color: rgb(255, 252, 0);
+    border-top-color: rgb(255, 252, 0);
+    border-bottom-color: rgb(255, 252, 0);
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+}
+
+#Item {
+    width: 200px;
+    height: 200px;
+}

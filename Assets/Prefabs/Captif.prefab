@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5628a712f19344097bf2524e725658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 01e2f9090e1454d4f974daaf378bd49b, type: 2}
   sfx:
     Guid:
       Data1: 0

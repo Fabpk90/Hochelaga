@@ -1,3 +1,8 @@
+.unity-text-element {
+    -unity-font: url("project://database/Assets/Font/AmaticSC-Regular.ttf?fileID=12800000&guid=08e0638c24519444d8ba5bffe87d02e8&type=3#AmaticSC-Regular");
+    -unity-font-definition: initial;
+}
+
 .slot-big-inventory {
     width: 140px;
     height: 140px;

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class UIInventory : MonoBehaviour
@@ -43,6 +45,7 @@ public class UIInventory : MonoBehaviour
 		textsAreas.Add((steleMaker.Q("InfosBody").Q<Label>("Title"), steleMaker.Q("InfosBody").Q<Label>("Descr")));
 		textsAreas.Add((steleMaker.Q("InfosFoot").Q<Label>("Title"), steleMaker.Q("InfosFoot").Q<Label>("Descr")));
 	}
+
 	private void Start()
 	{
 		TextManager.LoadCSV();
@@ -54,7 +57,11 @@ public class UIInventory : MonoBehaviour
 
 	private void Update()
 	{
-		
+		if (!isDragging) return;
+
+		newPosition += Mouse.current.delta.ReadValue();
+		draggableElement.style.left = newPosition.x;
+		draggableElement.style.top = newPosition.y;
 	}
 
 	public void AddDraggableElement(Item item)
@@ -63,7 +70,6 @@ public class UIInventory : MonoBehaviour
 		newElement.style.height = 140;
 		newElement.style.width = 140;
 		newElement.RegisterCallback<MouseDownEvent>(evt=>StartCoroutine(MouseDown(evt)));
-		newElement.RegisterCallback<MouseMoveEvent>(MouseMove);
 
 		foreach (var slot in slots)
 		{
@@ -113,8 +119,6 @@ public class UIInventory : MonoBehaviour
 		VisualElement currentDropArea = IsOverDropArea(draggableElement.worldBound.center, dropAreas);
 		if (currentDropArea != null && (!itemContainsBy.ContainsValue(currentDropArea) || itemContainsBy[draggableElement] == currentDropArea))
 		{
-			//draggableElement.style.left = currentDropArea.style.left;
-			//draggableElement.style.top = currentDropArea.style.top;
 			itemContainsBy[draggableElement] = currentDropArea;
 			FillDescr(items[draggableElement], currentDropArea);
 			UnlockSubmitVerify();
@@ -135,16 +139,6 @@ public class UIInventory : MonoBehaviour
 				draggableElement.style.top = elementStartPosition.y;
 			}
 		}
-	}
-
-	private void MouseMove(MouseMoveEvent evt)
-	{
-		if (!isDragging) return;
-
-		newPosition += evt.mouseDelta;
-		draggableElement.style.left = newPosition.x;
-		draggableElement.style.top = newPosition.y;
-		evt.StopPropagation();
 	}
 
 	private VisualElement IsOverDropArea(Vector2 position, List<VisualElement> areas)

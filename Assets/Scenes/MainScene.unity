@@ -1657,6 +1657,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5213846854422752152, guid: ac0fee7cca5aca047bc1e050ba6c3ef8, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 5213846854422752152, guid: ac0fee7cca5aca047bc1e050ba6c3ef8, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8907173767593382031, guid: ac0fee7cca5aca047bc1e050ba6c3ef8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1667,6 +1679,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 5466224834616152176}
   - {fileID: 619394802}
   - {fileID: 4528732019655018104}
   - {fileID: 2079471593}
@@ -1682,6 +1695,5 @@ SceneRoots:
   - {fileID: 3938447102197582168}
   - {fileID: 3856427346092278079}
   - {fileID: 1980029649}
-  - {fileID: 5466224834616152176}
   - {fileID: 1946804853}
   - {fileID: 577187322}

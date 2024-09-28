@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,12 +7,16 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    public float movementSpeed = 10;
+    public PlayerController instance;
     
+    public float movementSpeed = 10;
     
     private PlayerControls controls;
 
     private Vector3 movementDirection;
+
+    public bool dindonPickedUp = false;
+    public EventHandler OnDindonPickedUp;
     
     void Start()
     {
@@ -23,6 +28,14 @@ public class PlayerController : MonoBehaviour
         
         controls.Move.MoveYAxis.performed += MoveYAxisOnperformed;
         controls.Move.MoveYAxis.canceled += MoveYAxisOncanceled;
+
+        instance = this;
+    }
+
+    public void PickupDindon()
+    {
+        OnDindonPickedUp?.Invoke(this, null);
+        dindonPickedUp = true;
     }
 
     private void MoveYAxisOncanceled(InputAction.CallbackContext obj)
@@ -51,7 +64,17 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector3 move = movementDirection * (Time.deltaTime * movementSpeed);
-        //print(move);
-        transform.Translate(move);
+        Vector3 finalPos = move + transform.position;
+
+        //[0;1] screenspace
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(finalPos);
+        screenPos.x /= Screen.width;
+        screenPos.y /= Screen.height;
+        
+        if(screenPos.x > 1 || screenPos.x < 0 || screenPos.y > 1 || screenPos.y < 0) 
+            return;
+
+        transform.position = finalPos;
+
     }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9061280445871344103}
   - component: {fileID: 2822705317351530251}
+  - component: {fileID: 1244839194472689230}
   - component: {fileID: 1521265029250545356}
   m_Layer: 0
   m_Name: Cacao
@@ -85,6 +86,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1244839194472689230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5304282598551976208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a52df27c0fa54124ca2faf76a1161f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  sfx:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  amount: 1
 --- !u!58 &1521265029250545356
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -114,7 +136,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

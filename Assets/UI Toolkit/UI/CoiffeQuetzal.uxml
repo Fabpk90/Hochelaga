@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/UI/styles.uss?fileID=7433441132597879392&amp;guid=b642d3ffc93bf3e46a9245dee9413b0e&amp;type=3#styles" />
+    <ui:VisualElement name="Item" style="background-image: url(&quot;project://database/Assets/Art/Objets/Coiffe_quetza.png?fileID=2800000&amp;guid=80e81a4cba41219498bceff870fc140c&amp;type=3#Coiffe_quetza&quot;); transition-duration: 0.2s; transition-timing-function: ease-in-out-sine; height: 200px; -unity-background-scale-mode: scale-to-fit;" />
+</ui:UXML>

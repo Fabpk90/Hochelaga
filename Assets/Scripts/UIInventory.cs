@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -15,6 +14,7 @@ public class UIInventory : MonoBehaviour
 
 	private VisualElement steleMaker;
 	private Button submitButton, closeButton;
+	private Label labelCacao;
 	private List<VisualElement> slots = new();
 	private List<VisualElement> dropAreas = new();
 	private List<(Label, Label)> textsAreas = new();
@@ -37,6 +37,7 @@ public class UIInventory : MonoBehaviour
 		steleMaker = uiMainDocument.rootVisualElement.Q<VisualElement>("SteleMaker");
 		submitButton = uiMainDocument.rootVisualElement.Q<Button>("SubmitButton");
 		closeButton = uiMainDocument.rootVisualElement.Q<Button>("CloseStele");
+		labelCacao = uiMainDocument.rootVisualElement.Q<Label>("CounterCacao");
 		slots = bar.Query("BigSlot").ToList();
 		dropAreas.Add(steleMaker.Q("DropArea1"));
 		dropAreas.Add(steleMaker.Q("DropArea2"));
@@ -59,7 +60,7 @@ public class UIInventory : MonoBehaviour
 	{
 		if (!isDragging) return;
 
-		newPosition += Mouse.current.delta.ReadValue();
+		newPosition += Mouse.current.delta.ReadValue() * (Vector2.right + Vector2.down);
 		draggableElement.style.left = newPosition.x;
 		draggableElement.style.top = newPosition.y;
 	}
@@ -158,6 +159,9 @@ public class UIInventory : MonoBehaviour
 		textsAreas[dropAreas.IndexOf(itemContainsBy[draggableElement])].Item1.text = title;
 		textsAreas[dropAreas.IndexOf(itemContainsBy[draggableElement])].Item2.text = descr;
 	}
+
+	public void UpdateLabelCacao(string text)
+		=> labelCacao.text = text;
 
 	private void UnlockSubmitVerify()
 	{

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -12,6 +13,7 @@ public class UIInventory : MonoBehaviour
 	private VisualElement steleMaker;
 	private List<VisualElement> slots = new();
 	private List<VisualElement> dropAreas = new();
+	private List<(Label, Label)> textsAreas = new();
 	private List<VisualElement> draggableObjects = new();
 
 	private bool isDragging = false;
@@ -19,6 +21,7 @@ public class UIInventory : MonoBehaviour
 	private Dictionary<VisualElement, VisualElement> itemContainsBy = new();
 	private Dictionary<VisualElement, Item> items = new();
 	private Vector2 elementStartPosition;
+	private Vector2 newPosition;
 
 	private void Awake()
 	{
@@ -27,7 +30,16 @@ public class UIInventory : MonoBehaviour
 		VisualElement bar = uiMainDocument.rootVisualElement.Q<VisualElement>("InventoryBar");
 		steleMaker = uiMainDocument.rootVisualElement.Q<VisualElement>("SteleMaker");
 		slots = bar.Query("BigSlot").ToList();
-		dropAreas = steleMaker.Query("DropArea").ToList();
+		dropAreas.Add(steleMaker.Q("DropArea1"));
+		dropAreas.Add(steleMaker.Q("DropArea2"));
+		dropAreas.Add(steleMaker.Q("DropArea3"));
+		textsAreas.Add((steleMaker.Q("InfosHead").Q<Label>("Title"), steleMaker.Q("InfosHead").Q<Label>("Descr")));
+		textsAreas.Add((steleMaker.Q("InfosBody").Q<Label>("Title"), steleMaker.Q("InfosBody").Q<Label>("Descr")));
+		textsAreas.Add((steleMaker.Q("InfosFoot").Q<Label>("Title"), steleMaker.Q("InfosFoot").Q<Label>("Descr")));
+	}
+	private void Start()
+	{
+		TextManager.LoadCSV();
 	}
 
 	private void Update()
@@ -40,9 +52,10 @@ public class UIInventory : MonoBehaviour
 	public void AddDraggableElement(Item item)
 	{
 		VisualElement newElement = item.visualAsset.Instantiate();
-		newElement.RegisterCallback<MouseDownEvent>(MouseDown);
+		newElement.style.height = 140;
+		newElement.style.width = 140;
+		newElement.RegisterCallback<MouseDownEvent>(evt=>StartCoroutine(MouseDown(evt)));
 		newElement.RegisterCallback<MouseMoveEvent>(MouseMove);
-		newElement.RegisterCallback<MouseUpEvent>(MouseUp);
 
 		foreach (var slot in slots)
 		{
@@ -56,49 +69,34 @@ public class UIInventory : MonoBehaviour
 		}
 	}
 
-	private void MouseDown(MouseDownEvent evt)
+	private WaitUntil waitForButtonUp = new WaitUntil(()=>Input.GetMouseButtonUp(0));
+	private IEnumerator MouseDown(MouseDownEvent evt)
 	{
-		Debug.Log("mousedown");
-		draggableElement = evt.target as VisualElement;
+		draggableElement = evt.currentTarget as VisualElement;
+		evt.StopPropagation();
+
 		elementStartPosition = new(draggableElement.style.left.value.value, draggableElement.style.top.value.value);
 		newPosition = elementStartPosition;
+
 		isDragging = true;
-		draggableElement.CaptureMouse();
-		evt.StopPropagation();
-	}
-
-	Vector2 newPosition;
-	private void MouseMove(MouseMoveEvent evt)
-	{
-		if (!isDragging) return;
-		Debug.Log("mousedrag");
-
-		newPosition += evt.mouseDelta;
-		draggableElement.style.left = newPosition.x;
-		draggableElement.style.top = newPosition.y;
-		evt.StopPropagation();
-	}
-
-	private void MouseUp(MouseUpEvent evt)
-	{
-		Debug.Log("mouse up");
-		draggableElement.ReleaseMouse();
-
-		if (!isDragging) return;
-
+		yield return waitForButtonUp;
 		isDragging = false;
 
-		VisualElement currentDropArea = IsOverDropArea(draggableElement, dropAreas);
-		if (currentDropArea != null && !itemContainsBy.ContainsValue(currentDropArea))
+		if (itemContainsBy[draggableElement] != null && dropAreas.Contains(itemContainsBy[draggableElement]))
+			FillDescr(null, itemContainsBy[draggableElement]);
+
+		VisualElement currentDropArea = IsOverDropArea(draggableElement.worldBound.center, dropAreas);
+		if (currentDropArea != null && (!itemContainsBy.ContainsValue(currentDropArea) || itemContainsBy[draggableElement] == currentDropArea))
 		{
 			//draggableElement.style.left = currentDropArea.style.left;
 			//draggableElement.style.top = currentDropArea.style.top;
 			itemContainsBy[draggableElement] = currentDropArea;
+			FillDescr(items[draggableElement], currentDropArea);
 		}
 		else
 		{
-			currentDropArea = IsOverDropArea(draggableElement, slots);
-			if (currentDropArea != null && !itemContainsBy.ContainsValue(currentDropArea))
+			currentDropArea = IsOverDropArea(draggableElement.worldBound.center, slots);
+			if (currentDropArea != null && (!itemContainsBy.ContainsValue(currentDropArea)))
 			{
 				currentDropArea.Add(draggableElement);
 				draggableElement.style.left = currentDropArea.style.left;
@@ -111,20 +109,34 @@ public class UIInventory : MonoBehaviour
 				draggableElement.style.top = elementStartPosition.y;
 			}
 		}
+	}
 
+	private void MouseMove(MouseMoveEvent evt)
+	{
+		if (!isDragging) return;
+
+		newPosition += evt.mouseDelta;
+		draggableElement.style.left = newPosition.x;
+		draggableElement.style.top = newPosition.y;
 		evt.StopPropagation();
 	}
 
-	private VisualElement IsOverDropArea(VisualElement draggable, List<VisualElement> areas)
+	private VisualElement IsOverDropArea(Vector2 position, List<VisualElement> areas)
 	{
-		Rect draggableRect = draggable.worldBound;
-		Rect dropRect;
 		foreach (var dropaera in areas)
 		{
-			dropRect = dropaera.worldBound;
-			if (dropRect.Overlaps(draggableRect)) return dropaera;
+			if (dropaera.worldBound.Contains(position))
+				return dropaera;
 		}
 		return null;
 	}
 
+	private void FillDescr(Item item, VisualElement currentDropArea)
+	{
+		string title = item==null ? "" : TextManager.GetTextByID(item.idName);
+		string descr = item == null ? "" : TextManager.GetTextByID(item.idDescr);
+		textsAreas[dropAreas.IndexOf(itemContainsBy[draggableElement])].Item1.text = title;
+		textsAreas[dropAreas.IndexOf(itemContainsBy[draggableElement])].Item2.text = descr;
+
+	}
 }

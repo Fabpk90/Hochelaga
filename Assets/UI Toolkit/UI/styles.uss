@@ -49,3 +49,7 @@
     flex-wrap: wrap;
     flex-direction: row;
 }
+
+#SubmitButton:disabled {
+    opacity: 0.33;
+}

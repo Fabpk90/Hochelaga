@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
 {
     public float movementSpeed = 10;
     
-    private PlayerControls controls;
+    [HideInInspector]
+    public PlayerControls controls;
 
     private Vector3 movementDirection;
 

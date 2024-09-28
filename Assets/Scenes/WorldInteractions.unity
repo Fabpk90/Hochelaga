@@ -252,46 +252,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &260367525 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 525832636230190682, guid: 535c0119f3c162a479e3f809a3ad3866, type: 3}
-  m_PrefabInstance: {fileID: 2229428723876721236}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &260367529
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 260367525}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,15 +476,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3092258969807967557, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
   m_PrefabInstance: {fileID: 3856427346092278079}
   m_PrefabAsset: {fileID: 0}
---- !u!70 &636927477
-CapsuleCollider2D:
+--- !u!50 &636927478
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636927472}
-  m_Enabled: 1
-  m_Density: 1
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -532,25 +499,10 @@ CapsuleCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &696252390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,10 +1096,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 525832636230190682, guid: 535c0119f3c162a479e3f809a3ad3866, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 260367529}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 535c0119f3c162a479e3f809a3ad3866, type: 3}
 --- !u!1001 &3856427346092278079
 PrefabInstance:
@@ -1207,7 +1156,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3092258969807967557, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 636927477}
+      addedObject: {fileID: 636927478}
   m_SourcePrefab: {fileID: 100100000, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
 --- !u!1001 &3938447102197582168
 PrefabInstance:
@@ -1217,6 +1166,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1521265029250545356, guid: 5372682ce8550d641a638f2b5e7dad70, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5304282598551976208, guid: 5372682ce8550d641a638f2b5e7dad70, type: 3}
       propertyPath: m_Name
       value: Cacao
@@ -1266,7 +1219,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5304282598551976208, guid: 5372682ce8550d641a638f2b5e7dad70, type: 3}
-      insertIndex: -1
+      insertIndex: 2
       addedObject: {fileID: 2031529739}
   m_SourcePrefab: {fileID: 100100000, guid: 5372682ce8550d641a638f2b5e7dad70, type: 3}
 --- !u!1001 &4528732019655018104
@@ -1277,6 +1230,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 494420250554204111, guid: 1785f54fe50cef6418ebc0ebedd910b7, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4173058219416895054, guid: 1785f54fe50cef6418ebc0ebedd910b7, type: 3}
       propertyPath: m_Name
       value: Player

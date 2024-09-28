@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEditor.Progress;
 
 public class UIInventory : MonoBehaviour
 {
@@ -26,6 +25,8 @@ public class UIInventory : MonoBehaviour
 	private Vector2 elementStartPosition;
 	private Vector2 newPosition;
 
+	private bool firstTime = true; //gamejam stuff aka ugly ducktaped solution
+	
 	private void Awake()
 	{
 		Instance = this;
@@ -53,9 +54,7 @@ public class UIInventory : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.E)){
-			OpenStele(true);
-		}
+		
 	}
 
 	public void AddDraggableElement(Item item)
@@ -86,6 +85,13 @@ public class UIInventory : MonoBehaviour
 			if(itemContainsBy.ContainsValue(slot))
 				itemContainsBy.FirstOrDefault(x => x.Value == slot).Key.style.display = open ? DisplayStyle.Flex : DisplayStyle.None;
 		}
+
+		if (open == false && !firstTime) // ugly hax
+		{
+			PlayerController.instance.controls.Move.Enable();
+		}
+
+		firstTime = false;
 	}
 
 	private WaitUntil waitForButtonUp = new WaitUntil(()=>Input.GetMouseButtonUp(0));

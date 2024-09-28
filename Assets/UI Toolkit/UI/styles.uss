@@ -1,7 +1,6 @@
 .slot-big-inventory {
     width: 140px;
     height: 140px;
-    background-color: rgb(161, 161, 161);
     border-top-width: 1px;
     border-right-width: 1px;
     border-bottom-width: 1px;
@@ -10,10 +9,10 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    border-left-color: rgba(0, 0, 0, 0.44);
-    border-right-color: rgba(0, 0, 0, 0.44);
-    border-top-color: rgba(0, 0, 0, 0.44);
-    border-bottom-color: rgba(0, 0, 0, 0.44);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
     margin-top: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
@@ -43,4 +42,10 @@
 #Item {
     width: 200px;
     height: 200px;
+    position: absolute;
+}
+
+#BigSlot {
+    flex-wrap: wrap;
+    flex-direction: row;
 }

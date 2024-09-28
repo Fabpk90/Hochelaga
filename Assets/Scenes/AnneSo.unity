@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiMainDocument: {fileID: 1770779778}
+  exemple: {fileID: 11400000, guid: 84a47d686f535ee4b95a2508c6681545, type: 2}
 --- !u!1 &1788031338
 GameObject:
   m_ObjectHideFlags: 0

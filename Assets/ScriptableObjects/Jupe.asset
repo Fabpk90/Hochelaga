@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5766fbc785efcf74ca326b53848a1ea2, type: 3}
-  m_Name: Captif
+  m_Name: Jupe
   m_EditorClassIdentifier: 
-  idName: ID13
-  idDescr: ID14
+  idName: ID7
+  idDescr: ID8
   visualAsset: {fileID: 9197481963319205126, guid: b836d00442f072946b84ce597c195bc9, type: 3}

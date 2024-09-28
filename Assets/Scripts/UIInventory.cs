@@ -33,13 +33,13 @@ public class UIInventory : MonoBehaviour
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.E)){
-			AddDraggableElement(exemple.visualAsset, exemple);
+			AddDraggableElement(exemple);
 		}
 	}
 
-	public void AddDraggableElement(VisualTreeAsset asset, Item item)
+	public void AddDraggableElement(Item item)
 	{
-		VisualElement newElement = asset.Instantiate();
+		VisualElement newElement = item.visualAsset.Instantiate();
 		newElement.RegisterCallback<MouseDownEvent>(MouseDown);
 		newElement.RegisterCallback<MouseMoveEvent>(MouseMove);
 		newElement.RegisterCallback<MouseUpEvent>(MouseUp);

@@ -14,6 +14,8 @@ public class MarketSellItem : MarketItem
 
     private void OnMouseDown()
     {
-        
+        //UIInventory.Instance.Removeitem
+        MoneyManager.instance.AddMoney(item.priceSell);
+        Destroy(gameObject);
     }
 }

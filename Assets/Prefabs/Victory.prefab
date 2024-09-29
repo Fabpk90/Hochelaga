@@ -44,3 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b72765d92b4e64ab11099346efe9ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idItemHeadPolitique: ID1
+  idItemBodyPolitique: ID3
+  idItemFeetPolitique: ID5
+  idItemHeadMilitaire: ID11
+  idItemBodyMilitaire: ID9
+  idItemFeetMilitaire: ID13
+  idItemHeadReligieux: ID19
+  idItemBodyReligieux: ID17
+  idItemFeetReligieux: ID15

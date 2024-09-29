@@ -27,7 +27,7 @@ public class UIInventory : MonoBehaviour
 	private VisualElement draggableElement = null;
 	private VisualElement dragContener;
 	private Dictionary<VisualElement, VisualElement> itemContainsBy = new();
-	private Dictionary<VisualElement, Item> items = new();
+	public Dictionary<VisualElement, Item> items = new();
 	private Vector2 elementStartPosition;
 	private Vector2 offset = Vector2.zero;
 

@@ -12,7 +12,6 @@ Library: K:\unityproj\Hochelaga\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_g
 --linker-options=PdbAltPath="Hochelaga_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=K:\unityproj\Hochelaga\Temp\Burst
---debug=Full
 --key-folder=F:/2022.3.48f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
 --decode-folder=K:\unityproj\Hochelaga\Library\Burst
 --output=K:\unityproj\Hochelaga\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
@@ -33,7 +32,6 @@ Library: K:\unityproj\Hochelaga\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_g
 --linker-options=PdbAltPath="Hochelaga_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=K:\unityproj\Hochelaga\Temp\Burst
---debug=Full
 --key-folder=F:/2022.3.48f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
 --decode-folder=K:\unityproj\Hochelaga\Library\Burst
 --output=K:\unityproj\Hochelaga\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
@@ -52,7 +50,6 @@ Library: K:\unityproj\Hochelaga\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_g
 --linker-options=PdbAltPath="Hochelaga_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=K:\unityproj\Hochelaga\Temp\Burst
---debug=Full
 --key-folder=F:/2022.3.48f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
 --decode-folder=K:\unityproj\Hochelaga\Library\Burst
 --output=K:\unityproj\Hochelaga\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
@@ -105,7 +102,6 @@ Library: K:\unityproj\Hochelaga\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_g
 --linker-options=PdbAltPath="Hochelaga_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=K:\unityproj\Hochelaga\Temp\Burst
---debug=Full
 --key-folder=F:/2022.3.48f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
 --decode-folder=K:\unityproj\Hochelaga\Library\Burst
 --output=K:\unityproj\Hochelaga\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated

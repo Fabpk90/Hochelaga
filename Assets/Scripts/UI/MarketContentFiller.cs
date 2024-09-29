@@ -32,10 +32,6 @@ public class MarketContentFiller : MonoBehaviour
             {
                 items.Add(item);    
             }
-            else if (item.canBeSold)
-            {
-                items.Add(item);
-            }
         }
     }
 }

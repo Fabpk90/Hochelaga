@@ -22,7 +22,11 @@ public class MarketInteractable : Interactables
 
     private void InteractOnperformed(InputAction.CallbackContext obj)
     {
-        objectToActivate?.SetActive(true);
-        PlayerController.instance.controls.Move.Disable();
+        if (objectIsNearby)
+        {
+            objectToActivate?.SetActive(true);
+            PlayerController.instance.controls.Move.Disable();    
+        }
+        
     }
 }

@@ -10,11 +10,14 @@ using static UnityEditor.Progress;
 public class Interactables : MonoBehaviour
 {
     public GameObject objectToActivate;
+
+    protected bool objectIsNearby = false;
+    
 	public EventReference sfx;
 
     public virtual void PlayerCollisioned(PlayerController _player)
     {
-        _player.objectInteractingWith = objectToActivate;
+        objectIsNearby = true;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -39,8 +42,9 @@ public class Interactables : MonoBehaviour
 
     public virtual void PlayerUnCollisioned(PlayerController player)
     {
-        player.objectInteractingWith = null;
-	}
+        objectIsNearby = false;
+        player.controls.Interact.Disable();
+    }
 
 	public virtual void InteractOnperformed(InputAction.CallbackContext obj)
 	{

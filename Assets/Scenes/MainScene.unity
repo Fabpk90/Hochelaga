@@ -810,6 +810,7 @@ GameObject:
   - component: {fileID: 696252393}
   - component: {fileID: 696252392}
   - component: {fileID: 696252391}
+  - component: {fileID: 696252394}
   m_Layer: 0
   m_Name: champs
   m_TagString: Untagged
@@ -929,6 +930,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &696252394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696252390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1426607754
+      Data2: 1171401799
+      Data3: 287185554
+      Data4: -1360504860
+    Path: event:/AMB_PLANTATION
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &772578433
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,14 +1177,14 @@ MonoBehaviour:
       Data4: 527224165
     Path: event:/AMB_RIVER
   Event: 
-  PlayEvent: 0
+  PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   NonRigidbodyVelocity: 0
   Params: []
-  OverrideAttenuation: 0
+  OverrideAttenuation: 1
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
 --- !u!136 &1259081651
@@ -1256,6 +1288,7 @@ GameObject:
   - component: {fileID: 1720883978}
   - component: {fileID: 1720883977}
   - component: {fileID: 1720883980}
+  - component: {fileID: 1720883981}
   m_Layer: 0
   m_Name: bois
   m_TagString: Untagged
@@ -1389,6 +1422,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToActivate: {fileID: 0}
   woodItem: {fileID: 11400000, guid: fad90671f5ac45741a75dba36c0378d6, type: 2}
+--- !u!114 &1720883981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720883976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1426607754
+      Data2: 1171401799
+      Data3: 287185554
+      Data4: -1360504860
+    Path: event:/AMB_PLANTATION
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1825008621 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7552246197159591870, guid: 2f19cf99ed020764ca70021ee607d46a, type: 3}
@@ -1527,6 +1591,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4572608119193310239, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
+      propertyPath: sfx.Path
+      value: event:/SFX_Quetzal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572608119193310239, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
+      propertyPath: sfx.Guid.Data1
+      value: 78138575
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572608119193310239, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
+      propertyPath: sfx.Guid.Data2
+      value: 1317560643
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572608119193310239, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
+      propertyPath: sfx.Guid.Data3
+      value: 2005081996
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572608119193310239, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
+      propertyPath: sfx.Guid.Data4
+      value: 1292916227
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707795382475316265, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
+      propertyPath: sfx.Path
+      value: event:/SFX_JAGUAR
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707795382475316265, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
+      propertyPath: sfx.Guid.Data1
+      value: -1046535540
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707795382475316265, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
+      propertyPath: sfx.Guid.Data2
+      value: 1218353704
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707795382475316265, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
+      propertyPath: sfx.Guid.Data3
+      value: 1086168747
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707795382475316265, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
+      propertyPath: sfx.Guid.Data4
+      value: -1861401473
+      objectReference: {fileID: 0}
     - target: {fileID: 7954771957688983551, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1567,6 +1671,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8434117983942611622, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
+      propertyPath: sfx.Path
+      value: event:/SFX_COLIBRI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8434117983942611622, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
+      propertyPath: sfx.Guid.Data1
+      value: 248245538
+      objectReference: {fileID: 0}
+    - target: {fileID: 8434117983942611622, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
+      propertyPath: sfx.Guid.Data2
+      value: 1262316079
+      objectReference: {fileID: 0}
+    - target: {fileID: 8434117983942611622, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
+      propertyPath: sfx.Guid.Data3
+      value: -1164953685
+      objectReference: {fileID: 0}
+    - target: {fileID: 8434117983942611622, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
+      propertyPath: sfx.Guid.Data4
+      value: 795364118
+      objectReference: {fileID: 0}
     - target: {fileID: 8815510164946422277, guid: a782e982075c7ac4481f8a0adc8166cb, type: 3}
       propertyPath: m_Name
       value: ItemsPickables
@@ -1586,6 +1710,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 494420250554204111, guid: 1785f54fe50cef6418ebc0ebedd910b7, type: 3}
       propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041602235100246195, guid: 1785f54fe50cef6418ebc0ebedd910b7, type: 3}
+      propertyPath: PlayEvent
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1063052538684917806, guid: 1785f54fe50cef6418ebc0ebedd910b7, type: 3}

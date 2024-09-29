@@ -1,4 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="TutorialWindow" src="project://database/Assets/UI%20Toolkit/UI/TutorialWindow.uxml?fileID=9197481963319205126&amp;guid=e0eb53af7839e5a459b1be3475e88307&amp;type=3#TutorialWindow" />
     <Style src="project://database/Assets/UI%20Toolkit/UI/styles.uss?fileID=7433441132597879392&amp;guid=b642d3ffc93bf3e46a9245dee9413b0e&amp;type=3#styles" />
     <ui:VisualElement style="width: 100%; position: absolute; left: 1px; top: 0; right: 0; bottom: 0; background-image: url(&quot;project://database/Assets/Art/Interface/UI_Inventaire_Fond.png?fileID=2800000&amp;guid=b0be86d9d700dcb44a35392ca0634969&amp;type=3#UI_Inventaire_Fond&quot;);">
         <ui:Label tabindex="-1" text="0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CounterCacao" style="height: 53px; -unity-text-align: middle-right; -unity-font: url(&quot;project://database/Assets/Font/AmaticSC-Bold.ttf?fileID=12800000&amp;guid=d57a6f353dc449b45868c4d5b981c03f&amp;type=3#AmaticSC-Bold&quot;); font-size: 46px; color: rgb(255, 255, 255); margin-left: 70px; width: 71px; -unity-font-style: bold;" />
@@ -27,7 +28,7 @@
         <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="CloseStele" style="position: absolute; right: 61px; top: 5px; width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/Art/Interface/UI_Bouton_Fermer.png?fileID=2800000&amp;guid=9813abb0fbaca7f4783f5643a490f5d7&amp;type=3#UI_Bouton_Fermer&quot;); background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
     </ui:VisualElement>
     <ui:VisualElement name="InventoryBar" picking-mode="Ignore" style="bottom: 0; position: absolute; height: 127px; width: 100%; display: flex; flex-direction: row; justify-content: flex-start;">
-        <ui:GroupBox tabindex="1" picking-mode="Ignore" name="GroupBox" style="flex-direction: row; flex-wrap: wrap; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 3px; padding-right: 0; padding-bottom: 0; padding-left: 6px;">
+        <ui:GroupBox tabindex="1" picking-mode="Ignore" style="flex-direction: row; flex-wrap: wrap; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 3px; padding-right: 0; padding-bottom: 0; padding-left: 6px;">
             <ui:VisualElement name="BigSlot" picking-mode="Ignore" class="slot-big-inventory" />
             <ui:VisualElement name="BigSlot" picking-mode="Ignore" class="slot-big-inventory" style="width: 110px; height: 110px;" />
             <ui:VisualElement name="BigSlot" picking-mode="Ignore" class="slot-big-inventory" />
@@ -42,4 +43,5 @@
         <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="HomeButton" style="background-image: url(&quot;project://database/Assets/Art/Interface/UI_Bouton_Home.png?fileID=2800000&amp;guid=b35b741fcd0f05543a85d6be0877304e&amp;type=3#UI_Bouton_Home&quot;); align-self: center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-color: rgba(188, 188, 188, 0); width: 72px; height: 72px; margin-left: 18px;" />
     </ui:VisualElement>
     <ui:VisualElement picking-mode="Ignore" name="DragContener" style="position: absolute;" />
+    <ui:Instance template="TutorialWindow" name="TutorialWindow" picking-mode="Ignore" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
 </ui:UXML>

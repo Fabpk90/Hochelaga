@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class UIInventory : MonoBehaviour
@@ -14,7 +15,9 @@ public class UIInventory : MonoBehaviour
 
 	private VisualElement steleMaker;
 	private Button submitButton, closeButton;
+	private Button tutoButton, homeButton;
 	private Label labelCacao;
+	private Label labelQuest;
 	private List<VisualElement> slots = new();
 	private List<VisualElement> dropAreas = new();
 	private List<(Label, Label)> textsAreas = new();
@@ -34,13 +37,18 @@ public class UIInventory : MonoBehaviour
 	{
 		Instance = this;
 
-		VisualElement bar = uiMainDocument.rootVisualElement.Q<VisualElement>("InventoryBar");
 		steleMaker = uiMainDocument.rootVisualElement.Q<VisualElement>("SteleMaker");
 		dragContener = uiMainDocument.rootVisualElement.Q<VisualElement>("DragContener");
 		submitButton = uiMainDocument.rootVisualElement.Q<Button>("SubmitButton");
 		closeButton = uiMainDocument.rootVisualElement.Q<Button>("CloseStele");
 		labelCacao = uiMainDocument.rootVisualElement.Q<Label>("CounterCacao");
+
+		VisualElement bar = uiMainDocument.rootVisualElement.Q<VisualElement>("InventoryBar");
 		slots = bar.Query("BigSlot").ToList();
+		tutoButton = bar.Q<Button>("TutoButton");
+		homeButton = bar.Q<Button>("HomeButton");
+		labelQuest = bar.Q<Label>("MissionLabel");
+
 		dropAreas.Add(steleMaker.Q("DropArea1"));
 		dropAreas.Add(steleMaker.Q("DropArea2"));
 		dropAreas.Add(steleMaker.Q("DropArea3"));
@@ -52,9 +60,13 @@ public class UIInventory : MonoBehaviour
 	private void Start()
 	{
 		TextManager.LoadCSV();
+
 		submitButton.clicked += Victory.Instance.Verify;
 		closeButton.clicked += ()=>OpenStele(false);
 		uiMainDocument.rootVisualElement.RegisterCallback<MouseMoveEvent>(OnMouseMove);
+		homeButton.clicked += ClickHome;
+		tutoButton.clicked += ClickTuto;
+
 		OpenStele(false);
 		UnlockSubmitVerify();
 	}
@@ -67,11 +79,14 @@ public class UIInventory : MonoBehaviour
 		}
 	}
 
-	private void OnMouseMove(MouseMoveEvent evt){
-		if (!isDragging) return;
+	public void ClickHome()
+	{
+		SceneManager.LoadSceneAsync("MainMenu");
+	}
 
-		draggableElement.style.left = evt.mousePosition.x - offset.x;
-		draggableElement.style.top = evt.mousePosition.y - offset.y;
+	public void ClickTuto()
+	{
+		Tutorial.Instance.OpenTutorial();
 	}
 
 	public void AddDraggableElement(Item item)
@@ -154,6 +169,13 @@ public class UIInventory : MonoBehaviour
 			if (slots.Contains(itemContainsBy[draggableElement]))
 				itemContainsBy[draggableElement].Add(draggableElement);
 		}
+	}
+
+	private void OnMouseMove(MouseMoveEvent evt){
+		if (!isDragging) return;
+
+		draggableElement.style.left = evt.mousePosition.x - offset.x;
+		draggableElement.style.top = evt.mousePosition.y - offset.y;
 	}
 
 	private VisualElement IsOverDropArea(Vector2 position, List<VisualElement> areas)

@@ -129,7 +129,7 @@ public class UIInventory : MonoBehaviour
 		if (itemContainsBy[draggableElement] != null && dropAreas.Contains(itemContainsBy[draggableElement]))
 			FillDescr(null, itemContainsBy[draggableElement]);
 
-		VisualElement currentDropArea = IsOverDropArea(draggableElement.worldBound.center, dropAreas);
+		VisualElement currentDropArea = IsOverDropArea(draggableElement.Q("Item").worldBound.center, dropAreas);
 		if (currentDropArea != null && (!itemContainsBy.ContainsValue(currentDropArea) || itemContainsBy[draggableElement] == currentDropArea))
 		{
 			itemContainsBy[draggableElement] = currentDropArea;
@@ -138,21 +138,21 @@ public class UIInventory : MonoBehaviour
 		}
 		else
 		{
-			currentDropArea = IsOverDropArea(draggableElement.worldBound.center, slots);
+			currentDropArea = IsOverDropArea(draggableElement.Q("Item").worldBound.center, slots);
 			if (currentDropArea != null && (!itemContainsBy.ContainsValue(currentDropArea)))
 			{
-				currentDropArea.Add(draggableElement);
 				draggableElement.style.left = currentDropArea.style.left;
 				draggableElement.style.top = currentDropArea.style.top;
 				itemContainsBy[draggableElement] = currentDropArea;
-				currentDropArea.Add(draggableElement);
 			}
 			else
 			{
 				draggableElement.style.left = elementStartPosition.x;
 				draggableElement.style.top = elementStartPosition.y;
-				itemContainsBy[draggableElement].Add(draggableElement);
 			}
+
+			if (slots.Contains(itemContainsBy[draggableElement]))
+				itemContainsBy[draggableElement].Add(draggableElement);
 		}
 	}
 

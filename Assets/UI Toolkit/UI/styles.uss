@@ -19,7 +19,7 @@
 
 .slot-big-inventory VisualElement {
     max-height: 110px;
-    position: absolute;
+    position: relative;
     max-width: 110px;
 }
 

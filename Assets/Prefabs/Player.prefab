@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1063052538684917806}
   - component: {fileID: 494420250554204111}
   - component: {fileID: 2811503325148802710}
+  - component: {fileID: 1168141383321543985}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -100,6 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
+  dindonPickedUp: 0
+  objectInteractingWith: {fileID: 0}
 --- !u!50 &494420250554204111
 Rigidbody2D:
   serializedVersion: 4
@@ -172,3 +175,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1168141383321543985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4173058219416895054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}

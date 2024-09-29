@@ -16,7 +16,7 @@ MonoBehaviour:
   idDescr: ID22
   visualAsset: {fileID: 9197481963319205126, guid: 431647823fc6a1f499cdfc99ada40866, type: 3}
   imageForOldUiSystem: {fileID: 21300000, guid: 7c9109569e7c0b041a1d3630eb80b391, type: 3}
-  canBeBought: 1
+  canBeBought: 0
   canBeSold: 1
   priceBuy: 1
-  priceSell: 0
+  priceSell: 1

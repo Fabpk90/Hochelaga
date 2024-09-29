@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ public class AtelierInteractable : Interactables
 	{
 		Instance = this;
 	}
+	public EventReference sfxCrafter;
 
 	//interraction
 	public override void PlayerCollisioned(PlayerController _player)
@@ -78,6 +80,10 @@ public class AtelierInteractable : Interactables
 		}
 
 		UIInventory.Instance.AddDraggableElement(recipeAsked.result);
+		if (!sfxCrafter.IsNull)
+		{
+			FMODUnity.RuntimeManager.PlayOneShot(sfxCrafter);
+		}
 	}
 
 }

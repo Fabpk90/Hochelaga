@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 
 public class UIInventory : MonoBehaviour
 {
@@ -30,8 +31,6 @@ public class UIInventory : MonoBehaviour
 	public Dictionary<VisualElement, Item> items = new();
 	private Vector2 elementStartPosition;
 	private Vector2 offset = Vector2.zero;
-
-	private bool firstTime = true; //gamejam stuff aka ugly ducktaped solution
 	
 	private void Awake()
 	{
@@ -128,24 +127,20 @@ public class UIInventory : MonoBehaviour
 				itemContainsBy.FirstOrDefault(x => x.Value == slot).Key.style.display = open ? DisplayStyle.Flex : DisplayStyle.None;
 		}
 
-		if (open == false && !firstTime) // ugly hax
+		if (open == false)
 		{
-			PlayerController.instance.controls.Move.Enable();
+			PlayerController.instance?.controls.Move.Enable();
 		}
-
-		firstTime = false;
 	}
 
 	public void OpenAtelier(bool open = true)
 	{
 		atelierPanel.style.display = open ? DisplayStyle.Flex : DisplayStyle.None;
 
-		if (open == false && !firstTime) // ugly hax
+		if (open == false) 
 		{
-			PlayerController.instance.controls.Move.Enable();
+			PlayerController.instance?.controls.Move.Enable();
 		}
-
-		firstTime = false;
 	}
 
 	private WaitUntil waitForButtonUp = new WaitUntil(()=>Input.GetMouseButtonUp(0));
@@ -259,5 +254,16 @@ public class UIInventory : MonoBehaviour
 			return true;
 
 		return false;
+	}
+
+	public List<Item> GetInventory()
+	{
+		List<Item> inventory = new();
+		foreach (var item in items)
+		{
+			if (slots.Contains(itemContainsBy[item.Key]))
+				inventory.Add(item.Value);
+		}
+		return inventory;
 	}
 }

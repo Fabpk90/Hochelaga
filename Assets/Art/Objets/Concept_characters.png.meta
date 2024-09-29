@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9eb847b8cdbbef14b8377719c2bed0f9
+guid: ec60e0521271fe048b7c85996a5f1ada
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bois_0
+      name: Concept_characters_0
       rect:
         serializedVersion: 2
-        x: 143
-        y: 238
-        width: 390
-        height: 303
+        x: 701
+        y: 492
+        width: 221
+        height: 316
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bf2d2401fed2484a87f8a9f99c10320
-      internalID: -770880293
+      spriteID: b07b0e4edba4efc49bcab15719731e7a
+      internalID: 97364998
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bois_0: -770880293
+      Concept_characters_0: 97364998
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

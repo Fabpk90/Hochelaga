@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9eb847b8cdbbef14b8377719c2bed0f9
+guid: 538d3626631066545919812dbd68987a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bois_0
+      name: "JaguarCoup\xE9_0"
       rect:
         serializedVersion: 2
-        x: 143
-        y: 238
-        width: 390
-        height: 303
+        x: 207
+        y: 644
+        width: 695
+        height: 545
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bf2d2401fed2484a87f8a9f99c10320
-      internalID: -770880293
+      spriteID: 223d4393f212f534c9b924ff9014189d
+      internalID: -1944181344
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bois_0: -770880293
+      "JaguarCoup\xE9_0": -1944181344
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

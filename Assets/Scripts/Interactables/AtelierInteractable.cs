@@ -7,14 +7,19 @@ using UnityEngine.InputSystem;
 public class AtelierInteractable : Interactables
 {
 	[Serializable]
-	private class Recipe
+	public class Recipe
 	{
 		public string nameButton;
 		public List<Item> needed;
 		public Item result;
 	}
 
-	[SerializeField] private List<Recipe> recipes = new();
+	public List<Recipe> recipes = new();
+	public static AtelierInteractable Instance;
+	private void Awake()
+	{
+		Instance = this;
+	}
 
 	//interraction
 	public override void PlayerCollisioned(PlayerController _player)
@@ -28,17 +33,51 @@ public class AtelierInteractable : Interactables
 
 	private void CloseOnperformed(InputAction.CallbackContext obj)
 	{
-		UIInventory.Instance.OpenStele(false);
+		UIInventory.Instance.OpenAtelier(false);
 	}
 
-	private void InteractOnperformed(InputAction.CallbackContext obj)
+	public override void InteractOnperformed(InputAction.CallbackContext obj)
 	{
+		base.InteractOnperformed(obj);
 		PlayerController.instance.controls.Move.Disable();
-		UIInventory.Instance.OpenStele(true);
+		UIInventory.Instance.OpenAtelier(true);
 	}
 
 	public override void PlayerUnCollisioned(PlayerController player)
 	{
 		player.controls.Interact.Interact.performed -= InteractOnperformed;
 	}
+
+	public void CreateObject(string buttonName)
+	{
+		Recipe recipeAsked = null;
+		foreach (var recipe in recipes)
+		{
+			if (recipe.nameButton == buttonName)
+			{
+				recipeAsked = recipe;
+				break;
+			}
+		}
+		if (recipeAsked == null) return;
+
+		bool canCraft = true;
+		foreach (var item in recipeAsked.needed)
+		{
+			if (!UIInventory.Instance.HasObjectInInventory(item))
+			{
+				canCraft = false;
+				break;
+			}
+		}
+		if (!canCraft) return;
+
+		foreach (var item in recipeAsked.needed)
+		{
+			UIInventory.Instance.RemoveDraggable(item);
+		}
+
+		UIInventory.Instance.AddDraggableElement(recipeAsked.result);
+	}
+
 }

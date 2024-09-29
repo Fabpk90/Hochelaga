@@ -40,3 +40,10 @@
     transition-timing-function: ease-out;
     scale: 1.1 1.1;
 }
+
+.buttonCreate {
+    margin-top: 96px;
+    margin-right: 96px;
+    margin-bottom: 218px;
+    margin-left: 96px;
+}

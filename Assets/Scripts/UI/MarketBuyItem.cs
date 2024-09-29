@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MarketBuyItem : MarketItem
+public class MarketBuyItem : MarketItem, IPointerDownHandler
 {
     public override void InitPrice()
     {
@@ -12,9 +13,8 @@ public class MarketBuyItem : MarketItem
         priceText.text = "" + item.priceBuy;
     }
 
-    private void OnMouseDown()
+    public void OnPointerDown(PointerEventData eventData)
     {
-        print("Mouse clicked on item !");
         if (MoneyManager.instance.amount >= item.priceBuy)
         {
             MoneyManager.instance.RemoveMoney(item.priceSell);    

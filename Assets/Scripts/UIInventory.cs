@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,8 @@ public class UIInventory : MonoBehaviour
 	public Dictionary<VisualElement, Item> items = new();
 	private Vector2 elementStartPosition;
 	private Vector2 offset = Vector2.zero;
+
+	public EventHandler OnItemInInventoryAdded;
 	
 	private void Awake()
 	{
@@ -104,6 +107,7 @@ public class UIInventory : MonoBehaviour
 				itemContainsBy.Add(newElement, slot);
 				items.Add(newElement, item);
 				slot.Add(newElement);
+				OnItemInInventoryAdded?.Invoke(this, null);
 				break;
 			}
 		}

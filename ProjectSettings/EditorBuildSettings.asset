@@ -11,5 +11,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 7ce812a90d6995642b88e19a0fa7b4de
+  - enabled: 1
+    path: Assets/Scenes/VictoryScene.unity
+    guid: fcd152bca504e754bbb67bdc6e713689
+  - enabled: 1
+    path: Assets/Scenes/DefeateScene.unity
+    guid: 87ebc8cb1f5e58047bfbad6b3e0038bb
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: d918cf1834369f44ba2e690c0aaea474, type: 3}

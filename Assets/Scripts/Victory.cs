@@ -47,6 +47,7 @@ public class Victory : MonoBehaviour
 			case 1: 
 				Debug.Log("GAGNE");
 				currentMission++;
+				UIInventory.Instance.StartNewMission(currentMission);
 				break;
 
 			case 2:

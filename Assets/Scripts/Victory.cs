@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Victory : MonoBehaviour
 {
@@ -62,12 +63,11 @@ public class Victory : MonoBehaviour
 
 		if (erreurs >= 3)
 		{
-			Debug.Log("défaite");
-
+			SceneManager.LoadSceneAsync(3);
 		}
 		if (currentMission == 3)
 		{
-			Debug.Log("vraie victoire bravo !");
+			SceneManager.LoadSceneAsync(2);
 		}
 	}
 	public int AreAllVariablesInTuple((Item, Item, Item) tuple, string var1, string var2, string var3)

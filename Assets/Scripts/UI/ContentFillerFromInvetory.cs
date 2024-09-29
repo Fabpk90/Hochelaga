@@ -24,12 +24,11 @@ public class ContentFillerFromInvetory : MonoBehaviour
 		}
 	}
 
-	private void OnItemInInventoryAdded(object sender, EventArgs e)
+	private void OnItemInInventoryAdded(object sender, Item item)
 	{
-		for (int i = 0; i < transform.childCount; i++)
-		{
-			Destroy(transform.GetChild(i).gameObject);
-		}
+		var itemSpawn = Instantiate<MarketItem>(itemPrefab, transform);
+		itemSpawn.item = item; // could have been in the ctor oopsi
+		itemSpawn.Init();
 	}
 
 	void PopulateList()

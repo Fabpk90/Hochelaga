@@ -33,7 +33,7 @@ public class UIInventory : MonoBehaviour
 	private Vector2 elementStartPosition;
 	private Vector2 offset = Vector2.zero;
 
-	public System.EventHandler OnItemInInventoryAdded;
+	public System.EventHandler<Item> OnItemInInventoryAdded;
 	
 	private void Awake()
 	{
@@ -107,7 +107,7 @@ public class UIInventory : MonoBehaviour
 				itemContainsBy.Add(newElement, slot);
 				items.Add(newElement, item);
 				slot.Add(newElement);
-				OnItemInInventoryAdded?.Invoke(this, null);
+				OnItemInInventoryAdded?.Invoke(this, item);
 				break;
 			}
 		}

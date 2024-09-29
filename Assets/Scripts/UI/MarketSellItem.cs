@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MarketSellItem : MarketItem, IPointerDownHandler
+public class MarketSellItem : MarketItem, IPointerClickHandler
 {
     public override void InitPrice()
     {
@@ -13,10 +13,10 @@ public class MarketSellItem : MarketItem, IPointerDownHandler
         priceText.text = "" + item.priceSell;
     }
     
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
         UIInventory.Instance.RemoveDraggable(item);
         MoneyManager.instance.AddMoney(item.priceSell);
-        Destroy(gameObject);
+        Destroy(gameObject, 0.1f);
     }
 }

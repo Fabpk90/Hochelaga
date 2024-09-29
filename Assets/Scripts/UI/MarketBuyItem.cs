@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MarketBuyItem : MarketItem, IPointerDownHandler
+public class MarketBuyItem : MarketItem, IPointerClickHandler
 {
     public override void InitPrice()
     {
@@ -13,11 +13,11 @@ public class MarketBuyItem : MarketItem, IPointerDownHandler
         priceText.text = "" + item.priceBuy;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
         if (MoneyManager.instance.amount >= item.priceBuy)
         {
-            MoneyManager.instance.RemoveMoney(item.priceSell);    
+            MoneyManager.instance.RemoveMoney(item.priceBuy);    
             UIInventory.Instance.AddDraggableElement(item);
         }
     }

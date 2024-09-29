@@ -30,8 +30,6 @@ public class UIInventory : MonoBehaviour
 	public Dictionary<VisualElement, Item> items = new();
 	private Vector2 elementStartPosition;
 	private Vector2 offset = Vector2.zero;
-
-	private bool firstTime = true; //gamejam stuff aka ugly ducktaped solution
 	
 	private void Awake()
 	{
@@ -128,24 +126,20 @@ public class UIInventory : MonoBehaviour
 				itemContainsBy.FirstOrDefault(x => x.Value == slot).Key.style.display = open ? DisplayStyle.Flex : DisplayStyle.None;
 		}
 
-		if (open == false && !firstTime) // ugly hax
+		if (open == false)
 		{
-			PlayerController.instance.controls.Move.Enable();
+			PlayerController.instance?.controls.Move.Enable();
 		}
-
-		firstTime = false;
 	}
 
 	public void OpenAtelier(bool open = true)
 	{
 		atelierPanel.style.display = open ? DisplayStyle.Flex : DisplayStyle.None;
 
-		if (open == false && !firstTime) // ugly hax
+		if (open == false) 
 		{
-			PlayerController.instance.controls.Move.Enable();
+			PlayerController.instance?.controls.Move.Enable();
 		}
-
-		firstTime = false;
 	}
 
 	private WaitUntil waitForButtonUp = new WaitUntil(()=>Input.GetMouseButtonUp(0));

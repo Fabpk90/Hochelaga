@@ -17,8 +17,6 @@ public class PlayerController : MonoBehaviour
 
     public bool dindonPickedUp = false;
     public EventHandler OnDindonPickedUp;
-
-    public GameObject objectInteractingWith;
     
     void Start()
     {

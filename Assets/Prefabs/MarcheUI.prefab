@@ -557,6 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 2474752549311084183, guid: bf8da9569486d1f4abbcbfceaedf7106, type: 3}
+  items: []
 --- !u!1 &9011826291242227793
 GameObject:
   m_ObjectHideFlags: 0

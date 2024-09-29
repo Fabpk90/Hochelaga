@@ -13,24 +13,21 @@
     margin-left: 5px;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
-.slot-big-inventory #Item {
-    margin-top: 4px;
-    margin-right: 4px;
-    margin-bottom: 4px;
-    margin-left: 4px;
-    width: 106px;
-    height: 106px;
+.slot-big-inventory VisualElement {
+    max-height: 110px;
+    position: absolute;
+    max-width: 110px;
+}
+
+#DragContener VisualElement {
+    position: absolute;
 }
 
 .drop-area {
-}
-
-#Item {
-    width: 200px;
-    height: 200px;
-    position: absolute;
 }
 
 #SubmitButton:disabled {

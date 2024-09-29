@@ -22,10 +22,11 @@ public class UIInventory : MonoBehaviour
 
 	private bool isDragging = false;
 	private VisualElement draggableElement = null;
+	private VisualElement dragContener;
 	private Dictionary<VisualElement, VisualElement> itemContainsBy = new();
 	private Dictionary<VisualElement, Item> items = new();
 	private Vector2 elementStartPosition;
-	private Vector2 newPosition;
+	private Vector2 offset = Vector2.zero;
 
 	private bool firstTime = true; //gamejam stuff aka ugly ducktaped solution
 	
@@ -35,6 +36,7 @@ public class UIInventory : MonoBehaviour
 
 		VisualElement bar = uiMainDocument.rootVisualElement.Q<VisualElement>("InventoryBar");
 		steleMaker = uiMainDocument.rootVisualElement.Q<VisualElement>("SteleMaker");
+		dragContener = uiMainDocument.rootVisualElement.Q<VisualElement>("DragContener");
 		submitButton = uiMainDocument.rootVisualElement.Q<Button>("SubmitButton");
 		closeButton = uiMainDocument.rootVisualElement.Q<Button>("CloseStele");
 		labelCacao = uiMainDocument.rootVisualElement.Q<Label>("CounterCacao");
@@ -52,24 +54,29 @@ public class UIInventory : MonoBehaviour
 		TextManager.LoadCSV();
 		submitButton.clicked += Victory.Instance.Verify;
 		closeButton.clicked += ()=>OpenStele(false);
+		uiMainDocument.rootVisualElement.RegisterCallback<MouseMoveEvent>(OnMouseMove);
 		OpenStele(false);
 		UnlockSubmitVerify();
 	}
 
 	private void Update()
 	{
+		if (Input.GetKeyUp(KeyCode.R))
+		{
+			AddDraggableElement(exemple);
+		}
+	}
+
+	private void OnMouseMove(MouseMoveEvent evt){
 		if (!isDragging) return;
 
-		newPosition += Mouse.current.delta.ReadValue() * (Vector2.right + Vector2.down);
-		draggableElement.style.left = newPosition.x;
-		draggableElement.style.top = newPosition.y;
+		draggableElement.style.left = evt.mousePosition.x - offset.x;
+		draggableElement.style.top = evt.mousePosition.y - offset.y;
 	}
 
 	public void AddDraggableElement(Item item)
 	{
 		VisualElement newElement = item.visualAsset.Instantiate();
-		newElement.style.height = 140;
-		newElement.style.width = 140;
 		newElement.RegisterCallback<MouseDownEvent>(evt=>StartCoroutine(MouseDown(evt)));
 
 		foreach (var slot in slots)
@@ -105,10 +112,15 @@ public class UIInventory : MonoBehaviour
 	private IEnumerator MouseDown(MouseDownEvent evt)
 	{
 		draggableElement = evt.currentTarget as VisualElement;
-		evt.StopPropagation();
 
 		elementStartPosition = new(draggableElement.style.left.value.value, draggableElement.style.top.value.value);
-		newPosition = elementStartPosition;
+
+		offset = evt.mousePosition - draggableElement.worldBound.position;
+		draggableElement.style.left = evt.mousePosition.x - offset.x;
+		draggableElement.style.top = evt.mousePosition.y - offset.y;
+		evt.StopPropagation();
+
+		dragContener.Add(draggableElement);
 
 		isDragging = true;
 		yield return waitForButtonUp;
@@ -133,11 +145,13 @@ public class UIInventory : MonoBehaviour
 				draggableElement.style.left = currentDropArea.style.left;
 				draggableElement.style.top = currentDropArea.style.top;
 				itemContainsBy[draggableElement] = currentDropArea;
+				currentDropArea.Add(draggableElement);
 			}
 			else
 			{
 				draggableElement.style.left = elementStartPosition.x;
 				draggableElement.style.top = elementStartPosition.y;
+				itemContainsBy[draggableElement].Add(draggableElement);
 			}
 		}
 	}

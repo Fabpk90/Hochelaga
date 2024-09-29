@@ -3,28 +3,28 @@
     <ui:VisualElement style="width: 100%; position: absolute; left: 1px; top: 0; right: 0; bottom: 0; background-image: url(&quot;project://database/Assets/Art/Interface/UI_Inventaire_Fond.png?fileID=2800000&amp;guid=b0be86d9d700dcb44a35392ca0634969&amp;type=3#UI_Inventaire_Fond&quot;);">
         <ui:Label tabindex="-1" text="0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CounterCacao" style="height: 53px; -unity-text-align: middle-right; -unity-font: url(&quot;project://database/Assets/Font/AmaticSC-Bold.ttf?fileID=12800000&amp;guid=d57a6f353dc449b45868c4d5b981c03f&amp;type=3#AmaticSC-Bold&quot;); font-size: 46px; color: rgb(255, 255, 255); margin-left: 70px; width: 71px; -unity-font-style: bold;" />
     </ui:VisualElement>
-    <ui:VisualElement name="SteleMaker" picking-mode="Ignore" style="flex-grow: 1; flex-direction: row; margin-top: 50px; margin-right: 50px; margin-bottom: 200px; margin-left: 50px; align-self: center; justify-content: center; height: 100%; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px; background-image: url(&quot;project://database/Assets/Art/Interface/UI_Temple_Fond.png?fileID=2800000&amp;guid=4d915f011fb71304daf1bb74124f5e49&amp;type=3#UI_Temple_Fond&quot;); -unity-background-scale-mode: scale-to-fit;">
+    <ui:VisualElement name="SteleMaker" picking-mode="Ignore" style="flex-grow: 1; flex-direction: row; margin-top: 38px; margin-right: 0; margin-bottom: 166px; margin-left: 0; align-self: center; justify-content: center; height: 100%; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px; background-image: url(&quot;project://database/Assets/Art/Interface/UI_Temple_Fond.png?fileID=2800000&amp;guid=4d915f011fb71304daf1bb74124f5e49&amp;type=3#UI_Temple_Fond&quot;); -unity-background-scale-mode: scale-to-fit; width: 1391px;">
         <ui:VisualElement style="align-items: flex-start; height: 100%; width: 364px;">
-            <ui:VisualElement name="DropArea1" class="drop-area" style="flex-grow: 1; position: absolute; height: 208px; width: 330px; top: 39px; left: 42px;" />
-            <ui:VisualElement name="DropArea2" class="drop-area" style="flex-grow: 1; position: absolute; height: 159px; width: 331px; top: 248px; left: 43px;" />
-            <ui:VisualElement name="DropArea3" class="drop-area" style="flex-grow: 1; position: absolute; height: 336px; width: 328px; top: 410px; left: 44px;" />
+            <ui:VisualElement name="DropArea1" class="drop-area" style="flex-grow: 1; position: absolute; height: 189px; width: 330px; top: 65px; left: 42px;" />
+            <ui:VisualElement name="DropArea2" class="drop-area" style="flex-grow: 1; position: absolute; height: 150px; width: 331px; top: 257px; left: 43px;" />
+            <ui:VisualElement name="DropArea3" class="drop-area" style="flex-grow: 1; position: absolute; height: 378px; width: 328px; top: 410px; left: 44px;" />
         </ui:VisualElement>
-        <ui:VisualElement picking-mode="Ignore" style="align-items: flex-start; height: 785px; width: 756px; flex-direction: column-reverse;">
-            <ui:VisualElement name="InfosHead" picking-mode="Ignore" style="flex-grow: 1; height: 192px; width: 633px; position: absolute; top: 73px; left: 107px;">
+        <ui:VisualElement picking-mode="Ignore" style="align-items: flex-start; height: 825px; width: 784px; flex-direction: column-reverse;">
+            <ui:VisualElement name="InfosHead" picking-mode="Ignore" style="flex-grow: 1; height: 192px; width: 633px; position: absolute; top: 77px; left: 117px;">
                 <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" picking-mode="Ignore" style="-unity-font-style: bold; font-size: 26px; display: none;" />
                 <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Descr" picking-mode="Ignore" style="-unity-font-style: normal; white-space: normal; width: 100%; -unity-text-align: upper-left; text-overflow: clip;" />
             </ui:VisualElement>
-            <ui:VisualElement name="InfosBody" picking-mode="Ignore" style="flex-grow: 1; height: 184px; width: 633px; position: absolute; top: 292px; left: 106px;">
+            <ui:VisualElement name="InfosBody" picking-mode="Ignore" style="flex-grow: 1; height: 184px; width: 633px; position: absolute; top: 314px; left: 120px;">
                 <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" picking-mode="Ignore" style="-unity-font-style: bold; font-size: 26px; display: none;" />
                 <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Descr" picking-mode="Ignore" style="-unity-font-style: normal; white-space: normal; width: 100%; -unity-text-align: upper-left; text-overflow: clip;" />
             </ui:VisualElement>
-            <ui:VisualElement name="InfosFoot" picking-mode="Ignore" style="flex-grow: 1; height: 176px; width: 634px; position: absolute; top: 513px; left: 105px;">
+            <ui:VisualElement name="InfosFoot" picking-mode="Ignore" style="flex-grow: 1; height: 176px; width: 634px; position: absolute; top: 549px; left: 115px;">
                 <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" picking-mode="Ignore" style="-unity-font-style: bold; font-size: 26px; display: none;" />
                 <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Descr" picking-mode="Ignore" style="-unity-font-style: normal; white-space: normal; width: 100%; -unity-text-align: upper-left; text-overflow: clip;" />
             </ui:VisualElement>
             <ui:Button text="Terminer la stèle" parse-escape-sequences="true" display-tooltip-when-elided="true" name="SubmitButton" style="align-self: flex-end; opacity: 1; background-color: rgba(188, 188, 188, 0); background-image: url(&quot;project://database/Assets/Art/Interface/UI_Bouton_Actif.png?fileID=2800000&amp;guid=2364f4d48b61a654ea26f4a0c154b831&amp;type=3#UI_Bouton_Actif&quot;); color: rgb(255, 255, 255); -unity-font: url(&quot;project://database/Assets/Font/AmaticSC-Bold.ttf?fileID=12800000&amp;guid=d57a6f353dc449b45868c4d5b981c03f&amp;type=3#AmaticSC-Bold&quot;); height: 70px; width: 234px; font-size: 30px; -unity-font-style: bold; -unity-text-align: middle-center;" />
         </ui:VisualElement>
-        <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="CloseStele" style="position: absolute; right: -24px; top: 5px; width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/Art/Interface/UI_Bouton_Fermer.png?fileID=2800000&amp;guid=9813abb0fbaca7f4783f5643a490f5d7&amp;type=3#UI_Bouton_Fermer&quot;); background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+        <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="CloseStele" style="position: absolute; right: 61px; top: 5px; width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/Art/Interface/UI_Bouton_Fermer.png?fileID=2800000&amp;guid=9813abb0fbaca7f4783f5643a490f5d7&amp;type=3#UI_Bouton_Fermer&quot;); background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
     </ui:VisualElement>
     <ui:VisualElement name="InventoryBar" picking-mode="Ignore" style="bottom: 0; position: absolute; height: 127px; width: 100%; display: flex; flex-direction: row; justify-content: flex-start;">
         <ui:GroupBox tabindex="1" picking-mode="Ignore" name="GroupBox" style="flex-direction: row; flex-wrap: wrap; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 3px; padding-right: 0; padding-bottom: 0; padding-left: 6px;">
@@ -32,7 +32,7 @@
             <ui:VisualElement name="BigSlot" picking-mode="Ignore" class="slot-big-inventory" style="width: 110px; height: 110px;" />
             <ui:VisualElement name="BigSlot" picking-mode="Ignore" class="slot-big-inventory" />
             <ui:VisualElement name="BigSlot" picking-mode="Ignore" class="slot-big-inventory" />
-            <ui:VisualElement name="BigSlot" picking-mode="Ignore" class="slot-big-inventory" style="align-items: auto;" />
+            <ui:VisualElement name="BigSlot" picking-mode="Ignore" class="slot-big-inventory" />
             <ui:VisualElement name="BigSlot" picking-mode="Ignore" class="slot-big-inventory" />
             <ui:VisualElement name="BigSlot" picking-mode="Ignore" class="slot-big-inventory" />
             <ui:VisualElement name="BigSlot" picking-mode="Ignore" class="slot-big-inventory" />
@@ -41,4 +41,5 @@
         <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="TutoButton" style="background-image: url(&quot;project://database/Assets/Art/Interface/UI_Bouton_Tutoriel.png?fileID=2800000&amp;guid=aab0f91da8ef59c47a3acaf057a2d76e&amp;type=3#UI_Bouton_Tutoriel&quot;); align-self: center; border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-color: rgba(188, 188, 188, 0); height: 72px; width: 72px; margin-left: 20px;" />
         <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="HomeButton" style="background-image: url(&quot;project://database/Assets/Art/Interface/UI_Bouton_Home.png?fileID=2800000&amp;guid=b35b741fcd0f05543a85d6be0877304e&amp;type=3#UI_Bouton_Home&quot;); align-self: center; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-color: rgba(188, 188, 188, 0); width: 72px; height: 72px; margin-left: 18px;" />
     </ui:VisualElement>
+    <ui:VisualElement picking-mode="Ignore" name="DragContener" style="position: absolute;" />
 </ui:UXML>

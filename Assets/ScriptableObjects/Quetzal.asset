@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5766fbc785efcf74ca326b53848a1ea2, type: 3}
+  m_Name: Quetzal
+  m_EditorClassIdentifier: 
+  idName: ID28
+  idDescr: ID29
+  visualAsset: {fileID: 9197481963319205126, guid: 5b7c9196befac7e4ab70f9c04187ec7c, type: 3}

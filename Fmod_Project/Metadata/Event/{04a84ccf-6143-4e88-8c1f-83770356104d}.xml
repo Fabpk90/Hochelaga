@@ -60,7 +60,7 @@
 	<object class="MarkerTrack" id="{175b09c8-6bad-46ee-8609-4c6125493151}" />
 	<object class="GroupTrack" id="{bdb21e73-0f0c-4514-98f1-1a559a72b33a}">
 		<relationship name="modules">
-			<destination>{c1052d0e-d4ad-4cdc-b654-21fd37e6420f}</destination>
+			<destination>{2caefbe6-bfde-4eae-884f-aff66a0285d1}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{6cb7628f-edde-4345-aee3-cc139f51623d}</destination>
@@ -68,7 +68,7 @@
 	</object>
 	<object class="Timeline" id="{f1715a0e-cf6c-4c61-ac50-263d38d1fe04}">
 		<relationship name="modules">
-			<destination>{c1052d0e-d4ad-4cdc-b654-21fd37e6420f}</destination>
+			<destination>{2caefbe6-bfde-4eae-884f-aff66a0285d1}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{20c43985-3b31-4f32-8e0b-992cb1b39eea}">
@@ -88,12 +88,15 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{bc469cb4-6517-4bc8-bccb-276ba9517cfc}" />
-	<object class="SingleSound" id="{c1052d0e-d4ad-4cdc-b654-21fd37e6420f}">
+	<object class="SingleSound" id="{2caefbe6-bfde-4eae-884f-aff66a0285d1}">
 		<property name="length">
-			<value>73.430204081632695</value>
+			<value>2.0006122448979591</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{9a1ed2b9-065b-4f85-aa9d-72787dd7f493}</destination>
+		</relationship>
 		<relationship name="audioFile">
-			<destination>{14936d56-7c99-4ae2-bbe1-163f24b716ab}</destination>
+			<destination>{777489eb-f288-458a-a6c7-c9400efbf864}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{6cb7628f-edde-4345-aee3-cc139f51623d}">
@@ -117,6 +120,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{587a21d5-a45d-438c-b9b1-aa3623568cef}" />
 	<object class="MixerBusFader" id="{80a55201-03fc-4322-bb19-465c757ed4b5}" />
+	<object class="RandomizerModulator" id="{9a1ed2b9-065b-4f85-aa9d-72787dd7f493}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>2.5</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{dce15b68-485a-4c21-a17a-6a695aa85ffe}">
 		<relationship name="effects">
 			<destination>{0a53d8a0-01e7-43bf-a64f-890baa61f4f5}</destination>

@@ -5,7 +5,7 @@
 			<value>AMB_RIVER</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{6ed501eb-595a-4e94-9ff8-cd91aa88df9c}</destination>
@@ -56,7 +56,20 @@
 			<destination>{ab75a8b3-dbfb-4c12-84f6-5fea99c3c6a6}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{cee501c7-d3b6-46e4-9822-89a929649377}" />
+	<object class="EventAutomatableProperties" id="{cee501c7-d3b6-46e4-9822-89a929649377}">
+		<property name="isPersistent">
+			<value>true</value>
+		</property>
+		<property name="dopplerEnabled">
+			<value>true</value>
+		</property>
+		<property name="dopplerScale">
+			<value>500</value>
+		</property>
+		<property name="maximumDistance">
+			<value>10000</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{a69d51f5-1ffb-40be-b973-f30078401ffc}" />
 	<object class="GroupTrack" id="{d1d351c2-5845-47b1-a9d3-e165754fa222}">
 		<relationship name="modules">
@@ -97,6 +110,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{c15ef71a-8f4c-4994-a465-1217c3cf8c76}">
+		<property name="volume">
+			<value>-10</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -113,6 +129,8 @@
 	<object class="MixerBusEffectChain" id="{70dd0d76-b793-43df-8727-8b04be6a5799}">
 		<relationship name="effects">
 			<destination>{7c119754-fdee-4487-9d8d-daa0c889078e}</destination>
+			<destination>{75de0b52-2143-4091-88a5-f65092b97df4}</destination>
+			<destination>{01385aaa-1c3a-46e5-bbd2-400f04b0c3ab}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{ad09ae7f-860b-4a3a-8294-86183d53f4f9}" />
@@ -124,5 +142,33 @@
 	</object>
 	<object class="MixerBusPanner" id="{0ae1a831-09a8-4919-ba2a-c26b787f2b80}" />
 	<object class="MixerBusFader" id="{7c119754-fdee-4487-9d8d-daa0c889078e}" />
+	<object class="SpatialiserEffect" id="{75de0b52-2143-4091-88a5-f65092b97df4}">
+		<property name="minimumDistance">
+			<value>0</value>
+		</property>
+		<property name="maximumDistance">
+			<value>9800</value>
+		</property>
+		<property name="extentMode">
+			<value>1</value>
+		</property>
+		<property name="soundSize">
+			<value>2500</value>
+		</property>
+		<property name="minimumExtent">
+			<value>360</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{01385aaa-1c3a-46e5-bbd2-400f04b0c3ab}">
+		<property name="filterTypeA">
+			<value>4</value>
+		</property>
+		<property name="frequencyA">
+			<value>211.142456</value>
+		</property>
+		<property name="qualityA">
+			<value>0.730814755</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{4ad88822-9467-497b-9db9-dd900538c23f}" />
 </objects>

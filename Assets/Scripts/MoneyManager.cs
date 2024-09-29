@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class MoneyManager : MonoBehaviour
@@ -9,8 +6,6 @@ public class MoneyManager : MonoBehaviour
     public static MoneyManager instance;
 
     public int amount = 0;
-
-    public TextMeshProUGUI textToUpdate;
     
     public event EventHandler<int> OnMoneyChanged;
     
@@ -24,7 +19,7 @@ public class MoneyManager : MonoBehaviour
 
     private void MoneyChanged(object sender, int e)
     {
-        textToUpdate.text = ""+amount;
+        UIInventory.Instance.UpdateLabelCacao($"{amount}");
     }
 
     public void AddMoney(int _amount)
@@ -37,15 +32,9 @@ public class MoneyManager : MonoBehaviour
     // Why two methods ? Maybe we want a different SFX 
     public void RemoveMoney(int _amount)
     {
-      
         amount -= _amount;
         
         OnMoneyChanged?.Invoke(this, amount);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -16,7 +16,8 @@ public class Pickable : MonoBehaviour
         {
             FMODUnity.RuntimeManager.PlayOneShot(sfx);
 		}
-		UIInventory.Instance.AddDraggableElement(item);
+		
+        if(item!=null) UIInventory.Instance.AddDraggableElement(item);
 
 	}
     private void OnTriggerEnter2D(Collider2D other)

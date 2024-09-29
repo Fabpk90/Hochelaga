@@ -1,55 +1,42 @@
+.unity-text-element {
+    -unity-font: url("project://database/Assets/Font/calibri-regular.ttf?fileID=12800000&guid=86282591e4d6a6245b09e97810a6de47&type=3#calibri-regular");
+    -unity-font-definition: initial;
+    font-size: 28px;
+}
+
 .slot-big-inventory {
-    width: 140px;
-    height: 140px;
-    border-top-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-left-color: rgb(0, 0, 0);
-    border-right-color: rgb(0, 0, 0);
-    border-top-color: rgb(0, 0, 0);
-    border-bottom-color: rgb(0, 0, 0);
+    width: 110px;
+    height: 110px;
     margin-top: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
     margin-left: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
-.slot-big-inventory #Item {
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    margin-left: 5px;
-    width: 140px;
-    height: 140px;
+.slot-big-inventory VisualElement {
+    max-height: 110px;
+    max-width: 110px;
 }
 
-.drop-area {
-    border-left-color: rgb(255, 252, 0);
-    border-right-color: rgb(255, 252, 0);
-    border-top-color: rgb(255, 252, 0);
-    border-bottom-color: rgb(255, 252, 0);
-    border-top-width: 5px;
-    border-right-width: 5px;
-    border-bottom-width: 5px;
-    border-left-width: 5px;
-}
-
-#Item {
-    width: 200px;
-    height: 200px;
+#DragContener VisualElement {
     position: absolute;
 }
 
-#BigSlot {
-    flex-wrap: wrap;
-    flex-direction: row;
+.drop-area {
 }
 
 #SubmitButton:disabled {
-    opacity: 0.33;
+    background-image: url("project://database/Assets/Art/Interface/UI_Bouton_OFF.png?fileID=2800000&guid=0a18cb4d9a417aa43ae84079f4e84110&type=3#UI_Bouton_OFF");
+}
+
+.unity-button:hover {
+    opacity: 1;
+    transition-property: scale;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+    scale: 1.1 1.1;
 }

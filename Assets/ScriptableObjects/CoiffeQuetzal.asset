@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idName: ID1
   idDescr: ID2
-  visualAsset: {fileID: 9197481963319205126, guid: b836d00442f072946b84ce597c195bc9, type: 3}
+  visualAsset: {fileID: 9197481963319205126, guid: b29edbfa0d201a34098bff43ffc22226, type: 3}

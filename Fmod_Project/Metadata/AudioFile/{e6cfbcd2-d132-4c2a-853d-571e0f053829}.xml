@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e6cfbcd2-d132-4c2a-853d-571e0f053829}">
+		<property name="assetPath">
+			<value>Rocks, Movement, Moving, Grinding, Size Medium Resonance SND109678 1.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>192</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>76.548906250000002</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{d9343773-5f78-48d8-8f53-6f42db81cbb0}</destination>
+		</relationship>
+	</object>
+</objects>

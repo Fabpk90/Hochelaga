@@ -108,9 +108,15 @@ public class UIInventory : MonoBehaviour
 			case 1:
 				labelQuest.text = TextManager.GetTextByID("ID24");
 				mission2.style.display = DisplayStyle.Flex;
+				RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == slots[0]).Key]);
+				RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == slots[1]).Key]);
+				RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == slots[2]).Key]);
 				break;
 			case 2:
 				labelQuest.text = TextManager.GetTextByID("ID25");
+				RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == slots[0]).Key]);
+				RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == slots[1]).Key]);
+				RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == slots[2]).Key]);
 				mission3.style.display = DisplayStyle.Flex;
 				break;
 		}

@@ -71,14 +71,6 @@ public class UIInventory : MonoBehaviour
 		UnlockSubmitVerify();
 	}
 
-	private void Update()
-	{
-		if (Input.GetKeyUp(KeyCode.R))
-		{
-			AddDraggableElement(exemple);
-		}
-	}
-
 	public void ClickHome()
 	{
 		SceneManager.LoadSceneAsync("MainMenu");
@@ -91,6 +83,8 @@ public class UIInventory : MonoBehaviour
 
 	public void AddDraggableElement(Item item)
 	{
+		if (items.ContainsValue(item)) return;
+
 		VisualElement newElement = item.visualAsset.Instantiate();
 		newElement.RegisterCallback<MouseDownEvent>(evt=>StartCoroutine(MouseDown(evt)));
 

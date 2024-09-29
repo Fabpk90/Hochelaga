@@ -579,9 +579,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1259081654}
-  - component: {fileID: 1259081653}
-  - component: {fileID: 1259081652}
-  - component: {fileID: 1259081651}
   - component: {fileID: 1259081650}
   m_Layer: 0
   m_Name: AMB_RIVER
@@ -621,79 +618,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 10000
---- !u!136 &1259081651
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1259081649}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1259081652
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1259081649}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1259081653
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1259081649}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1259081654
 Transform:
   m_ObjectHideFlags: 0
@@ -710,6 +634,11 @@ Transform:
   - {fileID: 595275700}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1311135577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6238048728384215219, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+  m_PrefabInstance: {fileID: 4467834910496303637}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1825008621 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7552246197159591870, guid: 2f19cf99ed020764ca70021ee607d46a, type: 3}
@@ -1067,6 +996,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: atelier
       objectReference: {fileID: 0}
+    - target: {fileID: 4422246216287050634, guid: 33a3c36899b048746a0ddba763b545d9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1129,6 +1062,103 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2527670770cd3224f97d20ab3db68f78, type: 3}
+--- !u!1001 &4467834910496303637
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157889045775612982, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238048728384215219, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_Name
+      value: MarcheUI
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
 --- !u!1001 &4528732019655018104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1242,6 +1272,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6258182171785527211, guid: 81b27383cf6d9fa438e2c9fb5e022338, type: 3}
+      propertyPath: objectToActivate
+      value: 
+      objectReference: {fileID: 1311135577}
     - target: {fileID: 7502571675626121821, guid: 81b27383cf6d9fa438e2c9fb5e022338, type: 3}
       propertyPath: m_Name
       value: marche
@@ -1363,6 +1397,7 @@ SceneRoots:
   - {fileID: 2079471593}
   - {fileID: 618255724791481681}
   - {fileID: 4717282171488513259}
+  - {fileID: 4467834910496303637}
   - {fileID: 1243071116529272522}
   - {fileID: 2373116272783555697}
   - {fileID: 608169271090954651}

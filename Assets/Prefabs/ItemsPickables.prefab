@@ -490,7 +490,7 @@ Transform:
   m_GameObject: {fileID: 6033455362623975422}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.73, y: 2.15, z: 0}
+  m_LocalPosition: {x: 6.53, y: 8.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -676,7 +676,7 @@ Transform:
   m_GameObject: {fileID: 7198345803551816178}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.18, y: 3.65, z: 0}
+  m_LocalPosition: {x: -12.92, y: 9.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -738,7 +738,7 @@ Transform:
   m_GameObject: {fileID: 8094590677686072388}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.67, y: 5.85, z: 0}
+  m_LocalPosition: {x: -3.99, y: 7.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -872,8 +872,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ae7a3d5b9d98d84d8dbed69fba7c5a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  repeat: 0
-  speed: 20
+  repeat: 1
+  speed: 10
   waypoints:
   - {fileID: 3258110773373580797}
   - {fileID: 3628806294363285106}
@@ -1361,26 +1361,6 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[3]
       value: 
       objectReference: {fileID: 2767376717866421931}
-    - target: {fileID: 8658371864303254608, guid: db08fb3ea0ac53f408f0b4701355814c, type: 3}
-      propertyPath: sfx.Path
-      value: event:/SFX_Quetzal
-      objectReference: {fileID: 0}
-    - target: {fileID: 8658371864303254608, guid: db08fb3ea0ac53f408f0b4701355814c, type: 3}
-      propertyPath: sfx.Guid.Data1
-      value: 78138575
-      objectReference: {fileID: 0}
-    - target: {fileID: 8658371864303254608, guid: db08fb3ea0ac53f408f0b4701355814c, type: 3}
-      propertyPath: sfx.Guid.Data2
-      value: 1317560643
-      objectReference: {fileID: 0}
-    - target: {fileID: 8658371864303254608, guid: db08fb3ea0ac53f408f0b4701355814c, type: 3}
-      propertyPath: sfx.Guid.Data3
-      value: 2005081996
-      objectReference: {fileID: 0}
-    - target: {fileID: 8658371864303254608, guid: db08fb3ea0ac53f408f0b4701355814c, type: 3}
-      propertyPath: sfx.Guid.Data4
-      value: 1292916227
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1399,14 +1379,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7954771957688983551}
     m_Modifications:
-    - target: {fileID: 1374262513763455677, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
-      propertyPath: speed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1374262513763455677, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
-      propertyPath: waypoints.Array.size
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 1374262513763455677, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
@@ -1453,11 +1425,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6574614737514753060, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: -0.27
       objectReference: {fileID: 0}
     - target: {fileID: 6574614737514753060, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.58
+      value: 9.91
       objectReference: {fileID: 0}
     - target: {fileID: 6574614737514753060, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
       propertyPath: m_LocalPosition.z

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 
 public class UIInventory : MonoBehaviour
 {
@@ -253,5 +254,16 @@ public class UIInventory : MonoBehaviour
 			return true;
 
 		return false;
+	}
+
+	public List<Item> GetInventory()
+	{
+		List<Item> inventory = new();
+		foreach (var item in items)
+		{
+			if (slots.Contains(itemContainsBy[item.Key]))
+				inventory.Add(item.Value);
+		}
+		return inventory;
 	}
 }

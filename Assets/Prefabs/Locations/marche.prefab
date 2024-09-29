@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3687438799547249911}
   - component: {fileID: 4138168666363504584}
   - component: {fileID: 3559077095779261698}
+  - component: {fileID: 6258182171785527211}
   m_Layer: 0
   m_Name: marche
   m_TagString: Untagged
@@ -134,3 +135,23 @@ PolygonCollider2D:
       - {x: 8.920923, y: -0.6619573}
       - {x: 0.36187172, y: 3.6869452}
   m_UseDelaunayMesh: 0
+--- !u!114 &6258182171785527211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7502571675626121821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cef9216f1f29424db8cff30105e5b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToActivate: {fileID: 0}
+  sfx:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 

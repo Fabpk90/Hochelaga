@@ -18,5 +18,5 @@ MonoBehaviour:
   imageForOldUiSystem: {fileID: 21300000, guid: 8a225f1ea1484d445a3fc66b41f39a3a, type: 3}
   canBeBought: 1
   canBeSold: 1
-  priceBuy: 1
-  priceSell: 0
+  priceBuy: 15
+  priceSell: 15

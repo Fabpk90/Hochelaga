@@ -20,11 +20,12 @@ public class MarketInteractable : Interactables
         PlayerController.instance.controls.Move.Enable();
     }
 
-    private void InteractOnperformed(InputAction.CallbackContext obj)
+    public override void InteractOnperformed(InputAction.CallbackContext obj)
     {
         if (objectIsNearby)
-        {
-            objectToActivate?.SetActive(true);
+		{
+			base.InteractOnperformed(obj);
+			objectToActivate?.SetActive(true);
             PlayerController.instance.controls.Move.Disable();    
         }
         

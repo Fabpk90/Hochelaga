@@ -9,19 +9,20 @@ public class ContentFillerFromInvetory : MonoBehaviour
 	public MarketSellItem itemPrefab;
 
 	public List<Item> items = new List<Item>();
+
+	private List<MarketItem> itemsSpawned = new List<MarketItem>();
 	// Start is called before the first frame update
+
+	private void Awake()
+	{
+		PopulateList();
+	}
+
 	void Start()
 	{
 		PopulateList();
 		
 		UIInventory.Instance.OnItemInInventoryAdded += OnItemInInventoryAdded;
-
-		foreach (var item in items)
-		{
-			var itemSpawn = Instantiate<MarketItem>(itemPrefab, transform);
-			itemSpawn.item = item; // could have been in the ctor oopsi
-			itemSpawn.Init();
-		}
 	}
 
 	private void OnItemInInventoryAdded(object sender, Item item)
@@ -29,11 +30,20 @@ public class ContentFillerFromInvetory : MonoBehaviour
 		var itemSpawn = Instantiate<MarketItem>(itemPrefab, transform);
 		itemSpawn.item = item; // could have been in the ctor oopsi
 		itemSpawn.Init();
+		
+		itemsSpawned.Add(itemSpawn);
 	}
 
 	void PopulateList()
 	{
+		foreach (var marketItem in itemsSpawned)
+		{
+			Destroy(marketItem.gameObject);
+		}
+		
+		itemsSpawned.Clear();
 		items.Clear();
+		
 		var inventory = UIInventory.Instance.GetInventory();
 		foreach (var item in inventory)
 		{
@@ -41,6 +51,15 @@ public class ContentFillerFromInvetory : MonoBehaviour
 			{
 				items.Add(item);
 			}
+		}
+		
+		foreach (var item in items)
+		{
+			var itemSpawn = Instantiate<MarketItem>(itemPrefab, transform);
+			itemSpawn.item = item; // could have been in the ctor oopsi
+			itemSpawn.Init();
+			
+			itemsSpawned.Add(itemSpawn);
 		}
 	}
 

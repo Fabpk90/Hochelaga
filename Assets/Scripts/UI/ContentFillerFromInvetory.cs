@@ -13,6 +13,8 @@ public class ContentFillerFromInvetory : MonoBehaviour
 	void Start()
 	{
 		PopulateList();
+		
+		UIInventory.Instance.OnItemInInventoryAdded += OnItemInInventoryAdded;
 
 		foreach (var item in items)
 		{
@@ -22,14 +24,23 @@ public class ContentFillerFromInvetory : MonoBehaviour
 		}
 	}
 
+	private void OnItemInInventoryAdded(object sender, EventArgs e)
+	{
+		for (int i = 0; i < transform.childCount; i++)
+		{
+			Destroy(transform.GetChild(i).gameObject);
+		}
+	}
+
 	void PopulateList()
 	{
-		items = UIInventory.Instance.GetInventory();
-		foreach (var item in items)
+		items.Clear();
+		var inventory = UIInventory.Instance.GetInventory();
+		foreach (var item in inventory)
 		{
-			if (!item.canBeSold)
+			if (item.canBeSold)
 			{
-				items.Remove(item);
+				items.Add(item);
 			}
 		}
 	}

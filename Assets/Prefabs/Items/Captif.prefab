@@ -121,17 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   repeat: 1
   speed: 30
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waypoints: []
   stop: 0
 --- !u!70 &724536087715249725
 CapsuleCollider2D:

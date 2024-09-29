@@ -122,17 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &189506815 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6258182171785527211, guid: 81b27383cf6d9fa438e2c9fb5e022338, type: 3}
-  m_PrefabInstance: {fileID: 223611144}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cef9216f1f29424db8cff30105e5b5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &223611144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -194,6 +183,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81b27383cf6d9fa438e2c9fb5e022338, type: 3}
+--- !u!114 &223611145 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6258182171785527211, guid: 81b27383cf6d9fa438e2c9fb5e022338, type: 3}
+  m_PrefabInstance: {fileID: 223611144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cef9216f1f29424db8cff30105e5b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,60 +410,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6115820366153074346, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
-      propertyPath: m_Name
-      value: Escape
-      objectReference: {fileID: 0}
     - target: {fileID: 6238048728384215219, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
       propertyPath: m_Name
       value: MarcheUI
       objectReference: {fileID: 0}
     - target: {fileID: 6238048728384215219, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6619112651504974507, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 519420031}
-    - target: {fileID: 6619112651504974507, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7076930864573576944, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7089448570225898828, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7215379867679718762, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -30.909973
-      objectReference: {fileID: 0}
-    - target: {fileID: 7215379867679718762, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -34.817017
-      objectReference: {fileID: 0}
-    - target: {fileID: 7344093156142892191, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
-      propertyPath: m_fontSize
-      value: 39.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 7344093156142892191, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7940756605758047378, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
-      propertyPath: m_fontSize
-      value: 39.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 7940756605758047378, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8467045510402987277, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8606098252131608750, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
@@ -477,7 +429,7 @@ PrefabInstance:
     - target: {fileID: 8606098252131608750, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 189506815}
+      objectReference: {fileID: 223611145}
     - target: {fileID: 8606098252131608750, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

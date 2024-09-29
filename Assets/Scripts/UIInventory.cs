@@ -24,6 +24,7 @@ public class UIInventory : MonoBehaviour
 	private List<VisualElement> dropAreas = new();
 	private List<(Label, Label)> textsAreas = new();
 	private List<VisualElement> draggableObjects = new();
+	private VisualElement error1, error2, error3;
 
 	private bool isDragging = false;
 	private VisualElement draggableElement = null;
@@ -46,6 +47,9 @@ public class UIInventory : MonoBehaviour
 		closeButton = uiMainDocument.rootVisualElement.Q<Button>("CloseStele");
 		closeAtelierButton = uiMainDocument.rootVisualElement.Q<Button>("CloseAtelier");
 		labelCacao = uiMainDocument.rootVisualElement.Q<Label>("CounterCacao");
+		error1 = steleMaker.Q<VisualElement>("error1");
+		error2 = steleMaker.Q<VisualElement>("error2");
+		error3 = steleMaker.Q<VisualElement>("error3");
 
 		VisualElement bar = uiMainDocument.rootVisualElement.Q<VisualElement>("InventoryBar");
 		slots = bar.Query("BigSlot").ToList();
@@ -227,6 +231,21 @@ public class UIInventory : MonoBehaviour
 		string descr = item == null ? "" : TextManager.GetTextByID(item.idDescr);
 		textsAreas[dropAreas.IndexOf(itemContainsBy[draggableElement])].Item1.text = title;
 		textsAreas[dropAreas.IndexOf(itemContainsBy[draggableElement])].Item2.text = descr;
+	}
+	public void AddError(int error)
+	{
+		switch (error)
+		{
+			case 1:
+				error1.style.display = DisplayStyle.Flex;
+				break;
+			case 2:
+				error2.style.display = DisplayStyle.Flex;
+				break;
+			case 3:
+				error3.style.display = DisplayStyle.Flex;
+				break;
+		}
 	}
 
 	public void UpdateLabelCacao(string text)

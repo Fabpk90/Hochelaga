@@ -10,13 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5766fbc785efcf74ca326b53848a1ea2, type: 3}
-  m_Name: SerreTete
+  m_Name: Coquillage
   m_EditorClassIdentifier: 
-  idName: ID11
-  idDescr: ID12
-  visualAsset: {fileID: 9197481963319205126, guid: 1cab1ed641d9710449574802c7b16d43, type: 3}
-  imageForOldUiSystem: {fileID: 21300000, guid: 4ced0f7c9b9c3f24d95b8e6339c79ac8, type: 3}
-  canBeBought: 1
-  canBeSold: 1
-  priceBuy: 1
-  priceSell: 0
+  idName: ID36
+  idDescr: ID37
+  visualAsset: {fileID: 9197481963319205126, guid: bd97d00cb0d048743b7de48bce2b0331, type: 3}

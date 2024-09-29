@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class WoodInteractable : Interactables
@@ -22,8 +18,9 @@ public class WoodInteractable : Interactables
 		UIInventory.Instance.OpenStele(false);
 	}
 
-	private void InteractOnperformed(InputAction.CallbackContext obj)
+	public override void InteractOnperformed(InputAction.CallbackContext obj)
 	{
+		base.InteractOnperformed(obj);
 		UIInventory.Instance.AddDraggableElement(woodItem);
 	}
 

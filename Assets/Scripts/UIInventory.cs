@@ -13,8 +13,8 @@ public class UIInventory : MonoBehaviour
 	[SerializeField] private UIDocument uiMainDocument;
 	[SerializeField] private Item exemple;
 
-	private VisualElement steleMaker;
-	private Button submitButton, closeButton;
+	private VisualElement steleMaker, atelierPanel;
+	private Button submitButton, closeButton, closeAtelierButton;
 	private Button tutoButton, homeButton;
 	private Label labelCacao;
 	private Label labelQuest;
@@ -27,7 +27,7 @@ public class UIInventory : MonoBehaviour
 	private VisualElement draggableElement = null;
 	private VisualElement dragContener;
 	private Dictionary<VisualElement, VisualElement> itemContainsBy = new();
-	private Dictionary<VisualElement, Item> items = new();
+	public Dictionary<VisualElement, Item> items = new();
 	private Vector2 elementStartPosition;
 	private Vector2 offset = Vector2.zero;
 
@@ -38,9 +38,11 @@ public class UIInventory : MonoBehaviour
 		Instance = this;
 
 		steleMaker = uiMainDocument.rootVisualElement.Q<VisualElement>("SteleMaker");
+		atelierPanel = uiMainDocument.rootVisualElement.Q<VisualElement>("Atelier");
 		dragContener = uiMainDocument.rootVisualElement.Q<VisualElement>("DragContener");
 		submitButton = uiMainDocument.rootVisualElement.Q<Button>("SubmitButton");
 		closeButton = uiMainDocument.rootVisualElement.Q<Button>("CloseStele");
+		closeAtelierButton = uiMainDocument.rootVisualElement.Q<Button>("CloseAtelier");
 		labelCacao = uiMainDocument.rootVisualElement.Q<Label>("CounterCacao");
 
 		VisualElement bar = uiMainDocument.rootVisualElement.Q<VisualElement>("InventoryBar");
@@ -63,11 +65,19 @@ public class UIInventory : MonoBehaviour
 
 		submitButton.clicked += Victory.Instance.Verify;
 		closeButton.clicked += ()=>OpenStele(false);
+		closeAtelierButton.clicked += ()=>OpenAtelier(false);
 		uiMainDocument.rootVisualElement.RegisterCallback<MouseMoveEvent>(OnMouseMove);
 		homeButton.clicked += ClickHome;
 		tutoButton.clicked += ClickTuto;
 
+		foreach (var item in AtelierInteractable.Instance.recipes)
+		{
+			Button buttonAtelier = uiMainDocument.rootVisualElement.Q<Button>(item.nameButton);
+			buttonAtelier.clicked += ()=>AtelierInteractable.Instance.CreateObject(item.nameButton);
+		}
+
 		OpenStele(false);
+		OpenAtelier(false);
 		UnlockSubmitVerify();
 	}
 
@@ -99,6 +109,15 @@ public class UIInventory : MonoBehaviour
 			}
 		}
 	}
+	public void RemoveDraggable(Item item)
+	{
+		if (!items.ContainsValue(item)) return;
+
+		VisualElement elem = items.FirstOrDefault(x => x.Value == item).Key;
+		itemContainsBy.Remove(elem);
+		items.Remove(elem);
+		elem.RemoveFromHierarchy();
+	}
 
 	public void OpenStele(bool open = true)
 	{
@@ -108,6 +127,18 @@ public class UIInventory : MonoBehaviour
 			if(itemContainsBy.ContainsValue(slot))
 				itemContainsBy.FirstOrDefault(x => x.Value == slot).Key.style.display = open ? DisplayStyle.Flex : DisplayStyle.None;
 		}
+
+		if (open == false && !firstTime) // ugly hax
+		{
+			PlayerController.instance.controls.Move.Enable();
+		}
+
+		firstTime = false;
+	}
+
+	public void OpenAtelier(bool open = true)
+	{
+		atelierPanel.style.display = open ? DisplayStyle.Flex : DisplayStyle.None;
 
 		if (open == false && !firstTime) // ugly hax
 		{
@@ -215,5 +246,18 @@ public class UIInventory : MonoBehaviour
 			Item2 = this.items[itemContainsBy.FirstOrDefault(x => x.Value == dropAreas[1]).Key],
 			Item3 = this.items[itemContainsBy.FirstOrDefault(x => x.Value == dropAreas[2]).Key]
 		};
+	}
+
+	public bool HasObjectInInventory(Item item)
+	{
+		if (!items.ContainsValue(item))
+			return false;
+
+		VisualElement elem = items.FirstOrDefault(x => x.Value == item).Key;
+
+		if(slots.Contains(itemContainsBy[elem])) 
+			return true;
+
+		return false;
 	}
 }

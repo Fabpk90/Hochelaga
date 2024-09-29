@@ -20,9 +20,10 @@ public class TempleInteractable : Interactables
         UIInventory.Instance.OpenStele(false);
     }
 
-    private void InteractOnperformed(InputAction.CallbackContext obj)
-    {
-        PlayerController.instance.controls.Move.Disable();
+    public override void InteractOnperformed(InputAction.CallbackContext obj)
+	{
+		base.InteractOnperformed(obj);
+		PlayerController.instance.controls.Move.Disable();
         UIInventory.Instance.OpenStele(true);
     }
 

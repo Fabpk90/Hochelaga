@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class UIInventory : MonoBehaviour
@@ -14,7 +15,9 @@ public class UIInventory : MonoBehaviour
 
 	private VisualElement steleMaker;
 	private Button submitButton, closeButton;
+	private Button tutoButton, homeButton;
 	private Label labelCacao;
+	private Label labelQuest;
 	private List<VisualElement> slots = new();
 	private List<VisualElement> dropAreas = new();
 	private List<(Label, Label)> textsAreas = new();
@@ -22,10 +25,11 @@ public class UIInventory : MonoBehaviour
 
 	private bool isDragging = false;
 	private VisualElement draggableElement = null;
+	private VisualElement dragContener;
 	private Dictionary<VisualElement, VisualElement> itemContainsBy = new();
 	private Dictionary<VisualElement, Item> items = new();
 	private Vector2 elementStartPosition;
-	private Vector2 newPosition;
+	private Vector2 offset = Vector2.zero;
 
 	private bool firstTime = true; //gamejam stuff aka ugly ducktaped solution
 	
@@ -33,12 +37,18 @@ public class UIInventory : MonoBehaviour
 	{
 		Instance = this;
 
-		VisualElement bar = uiMainDocument.rootVisualElement.Q<VisualElement>("InventoryBar");
 		steleMaker = uiMainDocument.rootVisualElement.Q<VisualElement>("SteleMaker");
+		dragContener = uiMainDocument.rootVisualElement.Q<VisualElement>("DragContener");
 		submitButton = uiMainDocument.rootVisualElement.Q<Button>("SubmitButton");
 		closeButton = uiMainDocument.rootVisualElement.Q<Button>("CloseStele");
 		labelCacao = uiMainDocument.rootVisualElement.Q<Label>("CounterCacao");
+
+		VisualElement bar = uiMainDocument.rootVisualElement.Q<VisualElement>("InventoryBar");
 		slots = bar.Query("BigSlot").ToList();
+		tutoButton = bar.Q<Button>("TutoButton");
+		homeButton = bar.Q<Button>("HomeButton");
+		labelQuest = bar.Q<Label>("MissionLabel");
+
 		dropAreas.Add(steleMaker.Q("DropArea1"));
 		dropAreas.Add(steleMaker.Q("DropArea2"));
 		dropAreas.Add(steleMaker.Q("DropArea3"));
@@ -50,26 +60,38 @@ public class UIInventory : MonoBehaviour
 	private void Start()
 	{
 		TextManager.LoadCSV();
+
 		submitButton.clicked += Victory.Instance.Verify;
 		closeButton.clicked += ()=>OpenStele(false);
+		uiMainDocument.rootVisualElement.RegisterCallback<MouseMoveEvent>(OnMouseMove);
+		homeButton.clicked += ClickHome;
+		tutoButton.clicked += ClickTuto;
+
 		OpenStele(false);
 		UnlockSubmitVerify();
 	}
 
 	private void Update()
 	{
-		if (!isDragging) return;
+		if (Input.GetKeyUp(KeyCode.R))
+		{
+			AddDraggableElement(exemple);
+		}
+	}
 
-		newPosition += Mouse.current.delta.ReadValue() * (Vector2.right + Vector2.down);
-		draggableElement.style.left = newPosition.x;
-		draggableElement.style.top = newPosition.y;
+	public void ClickHome()
+	{
+		SceneManager.LoadSceneAsync("MainMenu");
+	}
+
+	public void ClickTuto()
+	{
+		Tutorial.Instance.OpenTutorial();
 	}
 
 	public void AddDraggableElement(Item item)
 	{
 		VisualElement newElement = item.visualAsset.Instantiate();
-		newElement.style.height = 140;
-		newElement.style.width = 140;
 		newElement.RegisterCallback<MouseDownEvent>(evt=>StartCoroutine(MouseDown(evt)));
 
 		foreach (var slot in slots)
@@ -105,10 +127,15 @@ public class UIInventory : MonoBehaviour
 	private IEnumerator MouseDown(MouseDownEvent evt)
 	{
 		draggableElement = evt.currentTarget as VisualElement;
-		evt.StopPropagation();
 
 		elementStartPosition = new(draggableElement.style.left.value.value, draggableElement.style.top.value.value);
-		newPosition = elementStartPosition;
+
+		offset = evt.mousePosition - draggableElement.worldBound.position;
+		draggableElement.style.left = evt.mousePosition.x - offset.x;
+		draggableElement.style.top = evt.mousePosition.y - offset.y;
+		evt.StopPropagation();
+
+		dragContener.Add(draggableElement);
 
 		isDragging = true;
 		yield return waitForButtonUp;
@@ -117,7 +144,7 @@ public class UIInventory : MonoBehaviour
 		if (itemContainsBy[draggableElement] != null && dropAreas.Contains(itemContainsBy[draggableElement]))
 			FillDescr(null, itemContainsBy[draggableElement]);
 
-		VisualElement currentDropArea = IsOverDropArea(draggableElement.worldBound.center, dropAreas);
+		VisualElement currentDropArea = IsOverDropArea(draggableElement.Q("Item").worldBound.center, dropAreas);
 		if (currentDropArea != null && (!itemContainsBy.ContainsValue(currentDropArea) || itemContainsBy[draggableElement] == currentDropArea))
 		{
 			itemContainsBy[draggableElement] = currentDropArea;
@@ -126,10 +153,9 @@ public class UIInventory : MonoBehaviour
 		}
 		else
 		{
-			currentDropArea = IsOverDropArea(draggableElement.worldBound.center, slots);
+			currentDropArea = IsOverDropArea(draggableElement.Q("Item").worldBound.center, slots);
 			if (currentDropArea != null && (!itemContainsBy.ContainsValue(currentDropArea)))
 			{
-				currentDropArea.Add(draggableElement);
 				draggableElement.style.left = currentDropArea.style.left;
 				draggableElement.style.top = currentDropArea.style.top;
 				itemContainsBy[draggableElement] = currentDropArea;
@@ -139,7 +165,17 @@ public class UIInventory : MonoBehaviour
 				draggableElement.style.left = elementStartPosition.x;
 				draggableElement.style.top = elementStartPosition.y;
 			}
+
+			if (slots.Contains(itemContainsBy[draggableElement]))
+				itemContainsBy[draggableElement].Add(draggableElement);
 		}
+	}
+
+	private void OnMouseMove(MouseMoveEvent evt){
+		if (!isDragging) return;
+
+		draggableElement.style.left = evt.mousePosition.x - offset.x;
+		draggableElement.style.top = evt.mousePosition.y - offset.y;
 	}
 
 	private VisualElement IsOverDropArea(Vector2 position, List<VisualElement> areas)

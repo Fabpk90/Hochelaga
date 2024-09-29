@@ -13,31 +13,30 @@
     margin-left: 5px;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
-.slot-big-inventory #Item {
-    margin-top: 4px;
-    margin-right: 4px;
-    margin-bottom: 4px;
-    margin-left: 4px;
-    width: 106px;
-    height: 106px;
+.slot-big-inventory VisualElement {
+    max-height: 110px;
+    max-width: 110px;
+}
+
+#DragContener VisualElement {
+    position: absolute;
 }
 
 .drop-area {
-}
-
-#Item {
-    width: 200px;
-    height: 200px;
-    position: absolute;
 }
 
 #SubmitButton:disabled {
     background-image: url("project://database/Assets/Art/Interface/UI_Bouton_OFF.png?fileID=2800000&guid=0a18cb4d9a417aa43ae84079f4e84110&type=3#UI_Bouton_OFF");
 }
 
-#SubmitButton:hover {
-    opacity: 0.33;
-    background-color: rgba(0, 0, 0, 0.53);
+.unity-button:hover {
+    opacity: 1;
+    transition-property: scale;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+    scale: 1.1 1.1;
 }

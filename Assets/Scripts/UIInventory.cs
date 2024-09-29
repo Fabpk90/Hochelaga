@@ -1,8 +1,8 @@
 using FMODUnity;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -25,6 +25,9 @@ public class UIInventory : MonoBehaviour
 	private List<(Label, Label)> textsAreas = new();
 	private List<VisualElement> draggableObjects = new();
 	private VisualElement error1, error2, error3;
+
+	private VisualElement mission2, mission3;
+	private Button closemission1, closemission2;
 
 	private bool isDragging = false;
 	private VisualElement draggableElement = null;
@@ -51,6 +54,11 @@ public class UIInventory : MonoBehaviour
 		error2 = steleMaker.Q<VisualElement>("error2");
 		error3 = steleMaker.Q<VisualElement>("error3");
 
+		mission2 = uiMainDocument.rootVisualElement.Q<VisualElement>("Objectif2");
+		mission3 = uiMainDocument.rootVisualElement.Q<VisualElement>("Objectif3");
+		closemission1 = mission2.Q<Button>("CloseMission2");
+		closemission2 = mission3.Q<Button>("CloseMission3");
+
 		VisualElement bar = uiMainDocument.rootVisualElement.Q<VisualElement>("InventoryBar");
 		slots = bar.Query("BigSlot").ToList();
 		tutoButton = bar.Q<Button>("TutoButton");
@@ -75,6 +83,8 @@ public class UIInventory : MonoBehaviour
 		uiMainDocument.rootVisualElement.RegisterCallback<MouseMoveEvent>(OnMouseMove);
 		homeButton.clicked += ClickHome;
 		tutoButton.clicked += ClickTuto;
+		closemission1.clicked += () => mission2.style.display = DisplayStyle.None;
+		closemission2.clicked += () => mission3.style.display = DisplayStyle.None;
 
 		foreach (var item in AtelierInteractable.Instance.recipes)
 		{
@@ -82,9 +92,29 @@ public class UIInventory : MonoBehaviour
 			buttonAtelier.clicked += ()=>AtelierInteractable.Instance.CreateObject(item.nameButton);
 		}
 
-		OpenStele(false);
 		OpenAtelier(false);
+		StartNewMission(0);
+	}
+
+	public void StartNewMission(int numMission)
+	{
+		OpenStele(false);
 		UnlockSubmitVerify();
+
+		switch (numMission)
+		{
+			case 0:
+				labelQuest.text = TextManager.GetTextByID("ID23");
+				break;
+			case 1:
+				labelQuest.text = TextManager.GetTextByID("ID24");
+				mission2.style.display = DisplayStyle.Flex;
+				break;
+			case 2:
+				labelQuest.text = TextManager.GetTextByID("ID25");
+				mission3.style.display = DisplayStyle.Flex;
+				break;
+		}
 	}
 
 	public void ClickHome()

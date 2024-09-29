@@ -3,7 +3,6 @@ using UnityEngine.UIElements;
 
 public class Tutorial : MonoBehaviour
 {
-
     public static Tutorial Instance;
 	[SerializeField] private UIDocument uiDocument;
 	private VisualElement panelTuto;
@@ -19,7 +18,7 @@ public class Tutorial : MonoBehaviour
 	private void Start()
 	{
 		close.clicked += ()=>OpenTutorial(false);
-		OpenTutorial(false);
+		//OpenTutorial(false);
 	}
 
 	public void OpenTutorial(bool open = true)

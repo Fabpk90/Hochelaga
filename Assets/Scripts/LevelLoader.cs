@@ -17,12 +17,12 @@ public class LevelLoader : MonoBehaviour
 
     void LoadLevel()
     {
+        if (levelIndex == -1) return;
         SceneManager.LoadScene(levelIndex);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Quit()
     {
-        
+        Application.Quit();
     }
 }

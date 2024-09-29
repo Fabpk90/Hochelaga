@@ -422,6 +422,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6619112651504974507, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 6619112651504974507, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7076930864573576944, guid: 0232f7c64f56727479d93c68f8e91052, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -555,6 +563,10 @@ PrefabInstance:
     - target: {fileID: 7552246197159591870, guid: 2f19cf99ed020764ca70021ee607d46a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8682106443140259899, guid: 2f19cf99ed020764ca70021ee607d46a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

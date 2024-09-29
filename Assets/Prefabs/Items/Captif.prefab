@@ -102,11 +102,11 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 01e2f9090e1454d4f974daaf378bd49b, type: 2}
   sfx:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -447004866
+      Data2: 1137143425
+      Data3: -669829731
+      Data4: -1609772267
+    Path: event:/SFX_Captif
 --- !u!114 &1374262513763455677
 MonoBehaviour:
   m_ObjectHideFlags: 0

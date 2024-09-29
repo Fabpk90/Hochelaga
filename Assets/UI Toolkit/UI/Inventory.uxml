@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="TutorialWindow" src="project://database/Assets/UI%20Toolkit/UI/TutorialWindow.uxml?fileID=9197481963319205126&amp;guid=e0eb53af7839e5a459b1be3475e88307&amp;type=3#TutorialWindow" />
     <Style src="project://database/Assets/UI%20Toolkit/UI/styles.uss?fileID=7433441132597879392&amp;guid=b642d3ffc93bf3e46a9245dee9413b0e&amp;type=3#styles" />
-    <ui:VisualElement style="width: 100%; position: absolute; left: 1px; top: 0; right: 0; bottom: 0; background-image: url(&quot;project://database/Assets/Art/Interface/UI_Inventaire_Fond.png?fileID=2800000&amp;guid=b0be86d9d700dcb44a35392ca0634969&amp;type=3#UI_Inventaire_Fond&quot;);">
+    <ui:VisualElement picking-mode="Ignore" style="width: 100%; position: absolute; left: 1px; top: 0; right: 0; bottom: 0; background-image: url(&quot;project://database/Assets/Art/Interface/UI_Inventaire_Fond.png?fileID=2800000&amp;guid=b0be86d9d700dcb44a35392ca0634969&amp;type=3#UI_Inventaire_Fond&quot;);">
         <ui:Label tabindex="-1" text="0" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CounterCacao" style="height: 53px; -unity-text-align: middle-right; -unity-font: url(&quot;project://database/Assets/Font/AmaticSC-Bold.ttf?fileID=12800000&amp;guid=d57a6f353dc449b45868c4d5b981c03f&amp;type=3#AmaticSC-Bold&quot;); font-size: 46px; color: rgb(255, 255, 255); margin-left: 70px; width: 71px; -unity-font-style: bold;" />
         <ui:VisualElement style="flex-grow: 1;" />
     </ui:VisualElement>

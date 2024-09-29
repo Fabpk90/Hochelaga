@@ -25,12 +25,9 @@ public class MarketContentFiller : MonoBehaviour
 
     void PopulateList()
     {
-        string[] assetNames = AssetDatabase.FindAssets("", new[] { "Assets/ScriptableObjects" });
-        foreach (string SOName in assetNames)
+        var itemsLoaded = Resources.LoadAll<Item>("ScriptableObjects");
+        foreach (var item in itemsLoaded)
         {
-            var SOpath    = AssetDatabase.GUIDToAssetPath(SOName);
-            var item = AssetDatabase.LoadAssetAtPath<Item>(SOpath);
-
             if (item.canBeBought == isBuySide) // we could have used the filter here (two folders for this) but eh, game jam right ?
             {
                 items.Add(item);    

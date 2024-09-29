@@ -30,4 +30,10 @@ public class MarketInteractable : Interactables
         }
         
     }
+
+    public void UiCloseButton()
+    {
+        objectToActivate?.SetActive(false);
+        PlayerController.instance.controls.Move.Enable();
+    }
 }

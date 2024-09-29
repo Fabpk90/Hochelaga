@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     public bool dindonPickedUp = false;
     public EventHandler OnDindonPickedUp;
+
+    [SerializeField] private GameObject footstepSound;
     
     void Start()
     {
@@ -29,7 +31,9 @@ public class PlayerController : MonoBehaviour
         controls.Move.MoveYAxis.performed += MoveYAxisOnperformed;
         controls.Move.MoveYAxis.canceled += MoveYAxisOncanceled;
 
-        instance = this;
+        footstepSound.SetActive(movementDirection != Vector3.zero);
+
+		instance = this;
     }
 
     public void PickupDindon()

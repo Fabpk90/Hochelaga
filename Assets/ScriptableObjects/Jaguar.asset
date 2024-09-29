@@ -15,3 +15,8 @@ MonoBehaviour:
   idName: ID32
   idDescr: ID33
   visualAsset: {fileID: 9197481963319205126, guid: 8fbafe46064cfd4439704d7336c19016, type: 3}
+  imageForOldUiSystem: {fileID: -1944181344, guid: 538d3626631066545919812dbd68987a, type: 3}
+  canBeBought: 0
+  canBeSold: 0
+  priceBuy: 1
+  priceSell: 0

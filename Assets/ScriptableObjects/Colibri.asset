@@ -15,3 +15,8 @@ MonoBehaviour:
   idName: ID27
   idDescr: ID28
   visualAsset: {fileID: 9197481963319205126, guid: b0648860163462a46a4278c3c59c6645, type: 3}
+  imageForOldUiSystem: {fileID: 613074454, guid: 29694a8a1dd1b0b49879fdcdadadb71c, type: 3}
+  canBeBought: 0
+  canBeSold: 0
+  priceBuy: 1
+  priceSell: 0

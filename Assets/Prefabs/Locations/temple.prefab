@@ -101,11 +101,11 @@ MonoBehaviour:
   objectToActivate: {fileID: 0}
   sfx:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -2019054823
+      Data2: 1144249612
+      Data3: 234381218
+      Data4: -1851121279
+    Path: event:/SFX_TEMPLE
 --- !u!60 &249622141529463202
 PolygonCollider2D:
   m_ObjectHideFlags: 0

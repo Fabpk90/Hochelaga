@@ -19,4 +19,4 @@ MonoBehaviour:
   canBeBought: 0
   canBeSold: 1
   priceBuy: 1
-  priceSell: 0
+  priceSell: 8

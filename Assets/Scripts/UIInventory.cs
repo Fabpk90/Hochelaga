@@ -1,8 +1,8 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -11,7 +11,8 @@ public class UIInventory : MonoBehaviour
 	public static UIInventory Instance;
 
 	[SerializeField] private UIDocument uiMainDocument;
-	[SerializeField] private Item exemple;
+	public EventReference sfxStele;
+	public EventReference sfxInventaire;
 
 	private VisualElement steleMaker, atelierPanel;
 	private Button submitButton, closeButton, closeAtelierButton;
@@ -169,6 +170,11 @@ public class UIInventory : MonoBehaviour
 			itemContainsBy[draggableElement] = currentDropArea;
 			FillDescr(items[draggableElement], currentDropArea);
 			UnlockSubmitVerify();
+			if (!sfxStele.IsNull)
+			{
+				FMODUnity.RuntimeManager.PlayOneShot(sfxStele);
+			}
+
 		}
 		else
 		{
@@ -178,6 +184,10 @@ public class UIInventory : MonoBehaviour
 				draggableElement.style.left = currentDropArea.style.left;
 				draggableElement.style.top = currentDropArea.style.top;
 				itemContainsBy[draggableElement] = currentDropArea;
+				if (!sfxInventaire.IsNull)
+				{
+					FMODUnity.RuntimeManager.PlayOneShot(sfxInventaire);
+				}
 			}
 			else
 			{
@@ -253,5 +263,16 @@ public class UIInventory : MonoBehaviour
 			return true;
 
 		return false;
+	}
+
+	public List<Item> GetInventory()
+	{
+		List<Item> inventory = new();
+		foreach (var item in items)
+		{
+			if (slots.Contains(itemContainsBy[item.Key]))
+				inventory.Add(item.Value);
+		}
+		return inventory;
 	}
 }

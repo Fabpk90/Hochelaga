@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public EventHandler OnDindonPickedUp;
 
     [SerializeField] private GameObject footstepSound;
+    [SerializeField] private GameObject EIndicator;
     
     void Start()
     {
@@ -80,5 +81,10 @@ public class PlayerController : MonoBehaviour
 
         transform.position = finalPos;
 
+    }
+
+    public void ShowE(bool show = true)
+    {
+        EIndicator.SetActive(show);
     }
 }

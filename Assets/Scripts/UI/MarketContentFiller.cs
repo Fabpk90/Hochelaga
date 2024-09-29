@@ -28,7 +28,7 @@ public class MarketContentFiller : MonoBehaviour
         var itemsLoaded = Resources.LoadAll<Item>("ScriptableObjects");
         foreach (var item in itemsLoaded)
         {
-            if (item.canBeBought == isBuySide) // we could have used the filter here (two folders for this) but eh, game jam right ?
+            if (item.canBeBought == isBuySide)
             {
                 items.Add(item);    
             }

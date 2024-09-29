@@ -608,16 +608,16 @@ MonoBehaviour:
       Data4: 527224165
     Path: event:/AMB_RIVER
   Event: 
-  PlayEvent: 0
+  PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   NonRigidbodyVelocity: 0
   Params: []
-  OverrideAttenuation: 0
+  OverrideAttenuation: 1
   OverrideMinDistance: 1
-  OverrideMaxDistance: 10000
+  OverrideMaxDistance: 20
 --- !u!4 &1259081654
 Transform:
   m_ObjectHideFlags: 0

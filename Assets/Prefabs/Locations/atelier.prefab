@@ -146,11 +146,11 @@ MonoBehaviour:
   objectToActivate: {fileID: 0}
   sfx:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1189165660
+      Data2: 1312426272
+      Data3: 68542645
+      Data4: 383961140
+    Path: event:/SFX_ATELIER
   recipes:
   - nameButton: Create1
     needed:
@@ -174,3 +174,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 177c43df759d28f4ebf273f5e064e84b, type: 2}
     - {fileID: 11400000, guid: 33c7c18b4f9dd84479193faf11c619d0, type: 2}
     result: {fileID: 11400000, guid: 29bca045b97cf1742a9c02cc83b7f8fc, type: 2}
+  sfxCrafter:
+    Guid:
+      Data1: -1765305070
+      Data2: 1104080799
+      Data3: 1035016834
+      Data4: 563674898
+    Path: event:/SFX_CRAFT

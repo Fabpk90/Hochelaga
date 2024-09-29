@@ -274,11 +274,11 @@ MonoBehaviour:
   objectToActivate: {fileID: 0}
   sfx:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1538954384
+      Data2: 1325510379
+      Data3: -1653856621
+      Data4: 509645776
+    Path: event:/SFX_BOIS
   woodItem: {fileID: 11400000, guid: fad90671f5ac45741a75dba36c0378d6, type: 2}
 --- !u!114 &8626074835212513023
 MonoBehaviour:

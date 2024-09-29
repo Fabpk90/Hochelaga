@@ -47,7 +47,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiMainDocument: {fileID: 8682106443140259899}
-  exemple: {fileID: 11400000, guid: 84a47d686f535ee4b95a2508c6681545, type: 2}
+  sfxStele:
+    Guid:
+      Data1: 1247241611
+      Data2: 1096428261
+      Data3: 571581
+      Data4: 1224315063
+    Path: event:/SFX_STELE
 --- !u!114 &8682106443140259899
 MonoBehaviour:
   m_ObjectHideFlags: 0

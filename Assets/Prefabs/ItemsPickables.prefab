@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 2207735013770926406}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -35.36, y: -4.43, z: 0}
+  m_LocalPosition: {x: -33.4, y: -0.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -521,7 +521,7 @@ Transform:
   m_GameObject: {fileID: 6242995581606508791}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.22, y: -0.65, z: 0}
+  m_LocalPosition: {x: -11.51, y: 1.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -786,6 +786,7 @@ GameObject:
   - component: {fileID: 7508257944949897133}
   - component: {fileID: 1873101240002703394}
   - component: {fileID: 3809665174257621536}
+  - component: {fileID: 1124654996924796738}
   m_Layer: 0
   m_Name: Dindon
   m_TagString: Untagged
@@ -802,7 +803,7 @@ Transform:
   m_GameObject: {fileID: 8151442860585653114}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.77, y: -3.88, z: 0}
+  m_LocalPosition: {x: -26.7, y: -2.25, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -880,6 +881,37 @@ MonoBehaviour:
   - {fileID: 5013424227263608371}
   - {fileID: 6129021015343275871}
   stop: 0
+--- !u!114 &1124654996924796738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8151442860585653114}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1930923854
+      Data2: 1261019910
+      Data3: 524642723
+      Data4: 1303569784
+    Path: event:/SFX_DINDON
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8265934502496301049
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,7 +968,7 @@ Transform:
   m_GameObject: {fileID: 8363450811205048006}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.49, y: -8.89, z: 0}
+  m_LocalPosition: {x: -9.97, y: -6.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1109,6 +1141,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7954771957688983551}
     m_Modifications:
+    - target: {fileID: 2192140175048673803, guid: a76cb6c6594c349419ca7bc92f186142, type: 3}
+      propertyPath: m_Radius
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192140175048673803, guid: a76cb6c6594c349419ca7bc92f186142, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.77
+      objectReference: {fileID: 0}
     - target: {fileID: 3574773942080068251, guid: a76cb6c6594c349419ca7bc92f186142, type: 3}
       propertyPath: m_Name
       value: Jaguar
@@ -1157,6 +1197,18 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[5]
       value: 
       objectReference: {fileID: 8508807634062207098}
+    - target: {fileID: 6624832059682191192, guid: a76cb6c6594c349419ca7bc92f186142, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6624832059682191192, guid: a76cb6c6594c349419ca7bc92f186142, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6624832059682191192, guid: a76cb6c6594c349419ca7bc92f186142, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6624832059682191192, guid: a76cb6c6594c349419ca7bc92f186142, type: 3}
       propertyPath: m_LocalPosition.x
       value: -36.58
@@ -1379,6 +1431,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7954771957688983551}
     m_Modifications:
+    - target: {fileID: 724536087715249725, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
+      propertyPath: m_Size.x
+      value: 2.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 724536087715249725, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
+      propertyPath: m_Size.y
+      value: 6.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 724536087715249725, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.49
+      objectReference: {fileID: 0}
     - target: {fileID: 1374262513763455677, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
@@ -1422,6 +1486,14 @@ PrefabInstance:
     - target: {fileID: 3092258969807967557, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
       propertyPath: m_Name
       value: Captif
+      objectReference: {fileID: 0}
+    - target: {fileID: 6574614737514753060, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6574614737514753060, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6574614737514753060, guid: 156ed91ede11e254a98cdf5ccc75cc11, type: 3}
       propertyPath: m_LocalPosition.x

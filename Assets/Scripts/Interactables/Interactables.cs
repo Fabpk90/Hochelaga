@@ -17,6 +17,7 @@ public class Interactables : MonoBehaviour
     public virtual void PlayerCollisioned(PlayerController _player)
     {
         objectIsNearby = true;
+        PlayerController.instance.ShowE(true);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -43,7 +44,8 @@ public class Interactables : MonoBehaviour
     {
         objectIsNearby = false;
         player.controls.Interact.Disable();
-    }
+		PlayerController.instance.ShowE(false);
+	}
 
 	public virtual void InteractOnperformed(InputAction.CallbackContext obj)
 	{

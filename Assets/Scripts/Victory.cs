@@ -29,7 +29,7 @@ public class Victory : MonoBehaviour
 	public void Verify()
 	{
 		(Item, Item, Item) items = UIInventory.Instance.GetOrder();
-		int result = -1;
+		(int, int, int) result = (-1, -1, -1);
 		switch (currentMission)
 		{
 			case 0:
@@ -43,23 +43,17 @@ public class Victory : MonoBehaviour
 				break;
 		}
 
-		switch (result) {
-			case 1: 
-				Debug.Log("GAGNE");
-				currentMission++;
-				UIInventory.Instance.StartNewMission(currentMission);
-				break;
-
-			case 2:
-				Debug.Log("Wrong order :(");
-				erreurs++;
-				UIInventory.Instance.AddError(erreurs);
-				break;
-
-			case 0:
-				erreurs++;
-				UIInventory.Instance.AddError(erreurs);
-				break;
+		if (result == (2, 2, 2))
+		{
+			currentMission++;
+			erreurs = 0;
+			UIInventory.Instance.StartNewMission(currentMission);
+		}
+		else
+		{
+			erreurs++;
+			UIInventory.Instance.AddError(erreurs);
+			UIInventory.Instance.ShowResults(result);
 		}
 
 		if (erreurs >= 3)
@@ -71,19 +65,38 @@ public class Victory : MonoBehaviour
 			SceneManager.LoadSceneAsync(2);
 		}
 	}
-	public int AreAllVariablesInTuple((Item, Item, Item) tuple, string var1, string var2, string var3)
+	public (int, int, int) AreAllVariablesInTuple((Item, Item, Item) tuple, string var1, string var2, string var3)
 	{
-		if (tuple.Item1.idName == var1 && tuple.Item2.idName == var2 && tuple.Item3.idName == var3)
+		//0 = wrong, 1 = not the right place  but this item should be on the stele, 2=right item
+		(int, int, int) results = new(0,0,0);
+
+		if (tuple.Item1.idName == var1)
 		{
-			return 1;
+			results.Item1 = 2;
+		}
+		else if (tuple.Item1.idName == var2 || tuple.Item1.idName == var3)
+		{
+			results.Item1 = 1;
 		}
 
-		bool allPresent = (tuple.Item1.idName == var1 || tuple.Item1.idName == var2 || tuple.Item1.idName == var3) &&
-						  (tuple.Item2.idName == var1 || tuple.Item2.idName == var2 || tuple.Item2.idName == var3) &&
-						  (tuple.Item3.idName == var1 || tuple.Item3.idName == var2 || tuple.Item3.idName == var3);
-		if (allPresent)
-			return 2;
+		if (tuple.Item2.idName == var2)
+		{
+			results.Item2 = 2;
+		}
+		else if (tuple.Item2.idName == var1 || tuple.Item2.idName == var3)
+		{
+			results.Item2 = 1;
+		}
 
-		return 0;
+		if (tuple.Item3.idName == var3)
+		{
+			results.Item3 = 2;
+		}
+		else if (tuple.Item3.idName == var1 || tuple.Item3.idName == var2)
+		{
+			results.Item3 = 1;
+		}
+
+		return results;
 	}
 }

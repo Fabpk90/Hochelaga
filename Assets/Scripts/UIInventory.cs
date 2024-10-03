@@ -35,6 +35,7 @@ public class UIInventory : MonoBehaviour
 	public Dictionary<VisualElement, Item> items = new();
 	private Vector2 elementStartPosition;
 	private Vector2 offset = Vector2.zero;
+	private bool slot1ShowResults, slot2ShowResults, slot3ShowResults = false;
 
 	public System.EventHandler<Item> OnItemInInventoryAdded;
 	
@@ -88,7 +89,7 @@ public class UIInventory : MonoBehaviour
 		foreach (var item in AtelierInteractable.Instance.recipes)
 		{
 			Button buttonAtelier = uiMainDocument.rootVisualElement.Q<Button>(item.nameButton);
-			buttonAtelier.clicked += ()=>AtelierInteractable.Instance.CreateObject(item.nameButton);
+			buttonAtelier.clicked += ()=> AtelierInteractable.Instance.CreateObject(item.nameButton);
 		}
 
 		OpenAtelier(false);
@@ -108,18 +109,20 @@ public class UIInventory : MonoBehaviour
 			case 1:
 				labelQuest.text = TextManager.GetTextByID("ID24");
 				mission2.style.display = DisplayStyle.Flex;
-				//RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == slots[0]).Key]);
-				//RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == slots[1]).Key]);
-				//RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == slots[2]).Key]);
+				RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == dropAreas[0]).Key]);
+				RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == dropAreas[1]).Key]);
+				RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == dropAreas[2]).Key]);
 				break;
 			case 2:
 				labelQuest.text = TextManager.GetTextByID("ID25");
-				//RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == slots[0]).Key]);
-				//RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == slots[1]).Key]);
-				//RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == slots[2]).Key]);
 				mission3.style.display = DisplayStyle.Flex;
+				RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == dropAreas[0]).Key]);
+				RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == dropAreas[1]).Key]);
+				RemoveDraggable(items[itemContainsBy.FirstOrDefault(x => x.Value == dropAreas[2]).Key]);
 				break;
 		}
+
+		ShowResults((-1,-1,-1));
 	}
 
 	public void ClickHome()
@@ -151,6 +154,7 @@ public class UIInventory : MonoBehaviour
 			}
 		}
 	}
+
 	public void RemoveDraggable(Item item)
 	{
 		if (!items.ContainsValue(item)) return;
@@ -199,6 +203,9 @@ public class UIInventory : MonoBehaviour
 		evt.StopPropagation();
 
 		dragContener.Add(draggableElement);
+
+		if(dropAreas.Contains(itemContainsBy[draggableElement]))
+			ApplyResult(itemContainsBy[draggableElement], -1);
 
 		isDragging = true;
 		yield return waitForButtonUp;
@@ -267,6 +274,7 @@ public class UIInventory : MonoBehaviour
 		textsAreas[dropAreas.IndexOf(itemContainsBy[draggableElement])].Item1.text = title;
 		textsAreas[dropAreas.IndexOf(itemContainsBy[draggableElement])].Item2.text = descr;
 	}
+
 	public void AddError(int error)
 	{
 		switch (error)
@@ -281,6 +289,37 @@ public class UIInventory : MonoBehaviour
 				error3.style.display = DisplayStyle.Flex;
 				break;
 		}
+	}
+
+	public void ShowResults((int, int, int) results)
+	{
+		ApplyResult(dropAreas[0], results.Item1);
+		ApplyResult(dropAreas[1], results.Item2);
+		ApplyResult(dropAreas[2], results.Item3);
+	}
+
+	private void ApplyResult(VisualElement slot, int result)
+	{
+		Color color = Color.clear;
+		switch (result)
+		{
+			case 0:
+				color = Color.red;
+				break;
+
+			case 1:
+				color = Color.yellow;
+				break;
+
+			case 2:
+				//all good, stay transparent
+				break;
+		}
+
+		slot.style.borderLeftColor = color;
+		slot.style.borderRightColor = color;
+		slot.style.borderBottomColor = color;
+		slot.style.borderTopColor = color;
 	}
 
 	public void UpdateLabelCacao(string text)

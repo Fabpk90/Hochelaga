@@ -881,6 +881,7 @@ MonoBehaviour:
   - {fileID: 5013424227263608371}
   - {fileID: 6129021015343275871}
   stop: 0
+  size: {x: 1, y: 1, z: 1}
 --- !u!114 &1124654996924796738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,7 +889,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8151442860585653114}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 

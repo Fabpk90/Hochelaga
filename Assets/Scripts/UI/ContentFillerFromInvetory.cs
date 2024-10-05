@@ -11,27 +11,38 @@ public class ContentFillerFromInvetory : MonoBehaviour
 	public List<Item> items = new List<Item>();
 
 	private List<MarketItem> itemsSpawned = new List<MarketItem>();
-	// Start is called before the first frame update
-
-	private void Awake()
-	{
-		PopulateList();
-	}
 
 	void Start()
 	{
 		PopulateList();
 		
 		UIInventory.Instance.OnItemInInventoryAdded += OnItemInInventoryAdded;
+		UIInventory.Instance.OnItemInInventoryRemoved += OnItemInInventoryRemoved;
 	}
 
 	private void OnItemInInventoryAdded(object sender, Item item)
 	{
+		if (!item.canBeSold) return;
+
 		var itemSpawn = Instantiate<MarketItem>(itemPrefab, transform);
 		itemSpawn.item = item; // could have been in the ctor oopsi
 		itemSpawn.Init();
 		
 		itemsSpawned.Add(itemSpawn);
+	}
+
+	private void OnItemInInventoryRemoved(object sender, Item item)
+	{
+		foreach (var marketItem in itemsSpawned)
+		{
+			if (marketItem.item == item)
+			{
+				itemsSpawned.Remove(marketItem);
+				items.Remove(item);
+				Destroy(marketItem.gameObject);
+				return;
+			}
+		}
 	}
 
 	void PopulateList()

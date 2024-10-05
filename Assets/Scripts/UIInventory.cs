@@ -10,7 +10,7 @@ public class UIInventory : MonoBehaviour
 {
 	public static UIInventory Instance;
 
-	[SerializeField] private UIDocument uiMainDocument;
+	public UIDocument uiMainDocument;
 	public EventReference sfxStele;
 	public EventReference sfxInventaire;
 
@@ -28,6 +28,7 @@ public class UIInventory : MonoBehaviour
 	private VisualElement mission2, mission3;
 	private Button closemission1, closemission2;
 
+
 	private bool isDragging = false;
 	private VisualElement draggableElement = null;
 	private VisualElement dragContener;
@@ -38,6 +39,7 @@ public class UIInventory : MonoBehaviour
 	private bool slot1ShowResults, slot2ShowResults, slot3ShowResults = false;
 
 	public System.EventHandler<Item> OnItemInInventoryAdded;
+	public System.EventHandler<Item> OnItemInInventoryRemoved;
 	
 	private void Awake()
 	{
@@ -77,6 +79,7 @@ public class UIInventory : MonoBehaviour
 	{
 		TextManager.LoadCSV();
 
+		submitButton.SetEnabled(false);
 		submitButton.clicked += Victory.Instance.Verify;
 		closeButton.clicked += ()=>OpenStele(false);
 		closeAtelierButton.clicked += ()=>OpenAtelier(false);
@@ -123,6 +126,11 @@ public class UIInventory : MonoBehaviour
 		}
 
 		ShowResults((-1,-1,-1));
+		foreach (var label in textsAreas)
+		{
+			label.Item1.text = "";
+			label.Item2.text = "";
+		}
 	}
 
 	public void ClickHome()
@@ -159,6 +167,7 @@ public class UIInventory : MonoBehaviour
 	{
 		if (!items.ContainsValue(item)) return;
 
+		OnItemInInventoryRemoved?.Invoke(this, item);
 		VisualElement elem = items.FirstOrDefault(x => x.Value == item).Key;
 		itemContainsBy.Remove(elem);
 		items.Remove(elem);
@@ -204,8 +213,11 @@ public class UIInventory : MonoBehaviour
 
 		dragContener.Add(draggableElement);
 
-		if(dropAreas.Contains(itemContainsBy[draggableElement]))
+		if (dropAreas.Contains(itemContainsBy[draggableElement]))
+		{
 			ApplyResult(itemContainsBy[draggableElement], -1);
+			submitButton.SetEnabled(false);
+		}
 
 		isDragging = true;
 		yield return waitForButtonUp;

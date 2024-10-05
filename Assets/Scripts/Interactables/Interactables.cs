@@ -14,37 +14,38 @@ public class Interactables : MonoBehaviour
     
 	public EventReference sfx;
 
-    public virtual void PlayerCollisioned(PlayerController _player)
+    public virtual void PlayerCollisioned(PlayerController player)
     {
         objectIsNearby = true;
-        PlayerController.instance.ShowE(true);
-    }
+		player.ShowE(true);
+	}
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerController player = other.gameObject.GetComponent<PlayerController>();
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
 
         if (player)
         {
             PlayerCollisioned(player);
         }
+
     }
-    
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        PlayerController player = other.gameObject.GetComponent<PlayerController>();
+
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
 
         if (player)
         {
             PlayerUnCollisioned(player);
         }
-    }
+	}
 
-    public virtual void PlayerUnCollisioned(PlayerController player)
+	public virtual void PlayerUnCollisioned(PlayerController player)
     {
         objectIsNearby = false;
         player.controls.Interact.Disable();
-		PlayerController.instance.ShowE(false);
+        player.ShowE(false);
 	}
 
 	public virtual void InteractOnperformed(InputAction.CallbackContext obj)

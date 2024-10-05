@@ -1,9 +1,20 @@
+using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class CacaoInteractible : Interactables
 {
+	public VisualTreeAsset cacaoView;
+	private VisualElement cacaoPoint;
 
 	public int amount = 1;
+
+	private void Start()
+	{
+		cacaoPoint = UIInventory.Instance.uiMainDocument.rootVisualElement.Q<VisualElement>("CacaoPoint");
+	}
 
 	public override void PlayerCollisioned(PlayerController _player)
 	{
@@ -25,7 +36,20 @@ public class CacaoInteractible : Interactables
 			base.InteractOnperformed(obj);
 
 			MoneyManager.instance.AddMoney(amount);
+			StartCoroutine(ShowCacaoEffect());
+			PlayerController.instance?.TwinkleE();
 		}
 
+	}
+
+	private WaitForSeconds waitFourSeconds = new WaitForSeconds(1);
+	public IEnumerator ShowCacaoEffect()
+	{
+		VisualElement cacaoElement = cacaoView.Instantiate();
+		cacaoPoint.Add(cacaoElement);
+		yield return null;
+		cacaoElement.Q(className:"cacaoAnimation").AddToClassList("cacaoAnimationPlay");
+		yield return waitFourSeconds;
+		cacaoPoint.Remove(cacaoElement);
 	}
 }

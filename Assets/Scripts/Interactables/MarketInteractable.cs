@@ -26,8 +26,9 @@ public class MarketInteractable : Interactables
 		{
 			base.InteractOnperformed(obj);
 			objectToActivate?.SetActive(true);
-            PlayerController.instance.controls.Move.Disable();    
-        }
+            PlayerController.instance.controls.Move.Disable();
+			PlayerController.instance?.TwinkleE();
+		}
         
     }
 

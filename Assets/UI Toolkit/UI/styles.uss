@@ -37,6 +37,10 @@
     border-bottom-color: rgba(255, 0, 0, 0);
 }
 
+#SubmitButton {
+    background-image: url("project://database/Assets/Art/Interface/UI_Bouton_Actif.png?fileID=2800000&guid=2364f4d48b61a654ea26f4a0c154b831&type=3#UI_Bouton_Actif");
+}
+
 #SubmitButton:disabled {
     background-image: url("project://database/Assets/Art/Interface/UI_Bouton_OFF.png?fileID=2800000&guid=0a18cb4d9a417aa43ae84079f4e84110&type=3#UI_Bouton_OFF");
 }
@@ -61,4 +65,22 @@
     margin-right: 96px;
     margin-bottom: 218px;
     margin-left: 96px;
+}
+
+.cacaoAnimation {
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out-circ;
+    opacity: 1;
+    position: absolute;
+    top: 100px;
+}
+
+.cacaoAnimationPlay {
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 0;
+    transition-timing-function: ease-in-out-circ;
+    transition-duration: 1s;
+    position: absolute;
+    top: 0;
 }

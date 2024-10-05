@@ -25,7 +25,8 @@ public class TempleInteractable : Interactables
 		base.InteractOnperformed(obj);
 		PlayerController.instance.controls.Move.Disable();
         UIInventory.Instance.OpenStele(true);
-    }
+		PlayerController.instance?.TwinkleE();
+	}
 
     public override void PlayerUnCollisioned(PlayerController player)
     {

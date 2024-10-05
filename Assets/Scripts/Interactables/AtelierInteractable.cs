@@ -43,6 +43,7 @@ public class AtelierInteractable : Interactables
 		base.InteractOnperformed(obj);
 		PlayerController.instance.controls.Move.Disable();
 		UIInventory.Instance.OpenAtelier(true);
+		PlayerController.instance?.TwinkleE();
 	}
 
 	public override void PlayerUnCollisioned(PlayerController player)

@@ -22,6 +22,7 @@ public class WoodInteractable : Interactables
 	{
 		base.InteractOnperformed(obj);
 		UIInventory.Instance.AddDraggableElement(woodItem);
+		PlayerController.instance?.TwinkleE();
 	}
 
 	public override void PlayerUnCollisioned(PlayerController player)

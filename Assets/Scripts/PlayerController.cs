@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
     public float movementSpeed = 10;
+    public Transform spriteObject;
     
     [HideInInspector]
     public PlayerControls controls;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject footstepSound;
     [SerializeField] private GameObject EIndicator;
+    private Vector3 Esize;
     
     void Start()
     {
@@ -33,6 +35,8 @@ public class PlayerController : MonoBehaviour
         controls.Move.MoveYAxis.canceled += MoveYAxisOncanceled;
 
         footstepSound.SetActive(movementDirection != Vector3.zero);
+
+        Esize = EIndicator.transform.localScale;
 
 		instance = this;
     }
@@ -63,6 +67,10 @@ public class PlayerController : MonoBehaviour
     {
         //print("XAxis " + obj.ReadValue<float>());
         movementDirection.x = obj.ReadValue<float>();
+        if (movementDirection.x > 0)
+			spriteObject.localScale = new Vector3(-1f, 1f, 1);
+        else spriteObject.localScale = Vector3.one;
+        
     }
 
     // Update is called once per frame
@@ -87,4 +95,27 @@ public class PlayerController : MonoBehaviour
     {
         EIndicator.SetActive(show);
     }
+
+    private IEnumerator twinckleAnimation = null;
+    public void TwinkleE()
+    {
+        if(twinckleAnimation != null)
+            StopCoroutine(twinckleAnimation);
+        StartCoroutine(TwinkleRoutine());  
+    }
+    private IEnumerator TwinkleRoutine()
+    {
+        Vector3 targetSize = Esize * 1.2f;
+        while (EIndicator.transform.localScale.x <= targetSize.x)
+        {
+            EIndicator.transform.localScale += Vector3.one * 4f * Time.deltaTime;
+            yield return null;
+		}
+		while (EIndicator.transform.localScale.x >= Esize.x)
+		{
+			EIndicator.transform.localScale -= Vector3.one * 4f * Time.deltaTime;
+			yield return null;
+		}
+        twinckleAnimation = null;
+	}
 }

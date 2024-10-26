@@ -66,5 +66,5 @@
     <ui:VisualElement name="Objectif3" picking-mode="Ignore" style="flex-grow: 1; position: absolute; height: 283px; width: 1046px; top: 176px; left: 419px; background-image: url(&quot;project://database/Assets/Art/Interface/UI_Bravo_Mission3.png?fileID=2800000&amp;guid=ae4e1d09bf5f32b49bb56b053194ed21&amp;type=3#UI_Bravo_Mission3&quot;); -unity-background-scale-mode: scale-to-fit; display: none;">
         <ui:Button name="CloseMission3" style="position: absolute; right: 39px; top: 27px; width: 50px; height: 50px; background-image: url(&quot;project://database/Assets/Art/Interface/UI_Bouton_Fermer.png?fileID=2800000&amp;guid=9813abb0fbaca7f4783f5643a490f5d7&amp;type=3#UI_Bouton_Fermer&quot;); background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
     </ui:VisualElement>
-    <ui:VisualElement name="CacaoPoint" style="flex-grow: 1; position: relative; top: 548px; left: 968px;" />
+    <ui:VisualElement name="CacaoPoint" picking-mode="Ignore" style="flex-grow: 1; position: relative; top: 548px; left: 968px;" />
 </ui:UXML>
